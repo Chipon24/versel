@@ -1,0 +1,19 @@
+//====================================================================================================
+
+    .sanity__container {
+        .sanity-content {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: toRem(18);
+           .post {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: toRem(15);
+            border: 2px solid goldenrod;
+            overflow: hidden;
+           }
+        }
+    }
+
+//====================================================================================================

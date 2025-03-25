@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"HomePage"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<div class="sanity__container">
+					<div id="hero">
+						<h2 class="post-title"></h2>
+						<div class="post-content">
+							<!-- <button id="load-more-btn">Завантажити ще</button> -->
+						</div>
+						<div class="post-date"></div>
+
+					</div>
+
+					<h1>Sanity</h1>
+					<div id="posts" class="sanity-content"></div>
+		
+				
+					
+				</div>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>
