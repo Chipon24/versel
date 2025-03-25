@@ -35,6 +35,7 @@ export async function getPosts(start = 0, limit = 4) {
     title,
     meta_title,
     publishDate,
+    description,
     "slug": slug.current,
     "poster": poster.asset->url,
     "content": content[] {

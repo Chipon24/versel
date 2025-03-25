@@ -11,70 +11,69 @@ import { getPosts } from './sanityAPI.js';
 
 // document.addEventListener("DOMContentLoaded", async () => {
 //   const postsContainer = document.getElementById("posts");
+//   const loadMoreButton = document.createElement("button");
+//   loadMoreButton.textContent = "Завантажити ще";
+//   loadMoreButton.id = "load-more";
+//   loadMoreButton.style.display = "none"; // Ховаємо кнопку, поки не з'ясуємо, чи є ще пости
 
-//   try {
-//     const posts = await getPosts(); // Отримуємо пости
+//   let start = 0; // Початковий індекс
+//   const limit = 4; // Скільки постів завантажувати за раз
 
-//     if (posts.length > 0) {
-//       posts.forEach(post => {
-//         const postElement = document.createElement("div");
-//         postElement.classList.add("post");
+//   async function loadPosts() {
+//     try {
+//       const posts = await getPosts(start, limit);
 
-//         const postTitle = document.createElement("h2");
-//         postTitle.classList.add("post-title");
+//       if (posts.length > 0) {
+//         posts.forEach(post => {
+//           const postElement = document.createElement("div");
+//           postElement.classList.add("post");
 
-//         const postDate = document.createElement("div");
-//         postDate.classList.add("post-date");
+//           const postBg = document.createElement("img");
+//           postBg.classList.add("post-bg");
+//           postBg.src = post.poster;
 
-//         const postContent = document.createElement("div");
-//         postContent.classList.add('post-content');
+//           const postTitle = document.createElement("h2");
+//           postTitle.classList.add("post-title");
 
-//         postTitle.textContent = post.title;
-     
-//         post.content.forEach(block => {
-//           if (block._type === "contentText" && block.children) {
-//             // Витягуємо текст з кожного елемента children
-//             const text = block.children.map(child => child.text || "").join(" ").trim();
-        
-//             if (text) { // Додаємо тільки, якщо є текст
-//               let element;
-        
-//               // Перевірка стилю блоку
-//               if (block.style === "h4") {
-//                 element = document.createElement("h4"); // Створюємо заголовок h4
-//               } else if (block.style === "blockquote") {
-//                 element = document.createElement("blockquote"); // Якщо це цитата
-//               } else {
-//                 element = document.createElement("p"); // За замовчуванням це абзац
-//               }
-        
-//               element.textContent = text;
-//               postContent.appendChild(element);
-//             }
-//           } else if (block._type === "blokPostImage" && block.imageUrl) {
-//             // Виводимо зображення
-//             const image = document.createElement("img");
-//             image.src = block.imageUrl;
-//             image.alt = block.alt || "Зображення";
-//             postContent.appendChild(image);
-//           }
+//           const postDate = document.createElement("div");
+//           postDate.classList.add("post-date");
+
+//           const postDeskr = document.createElement("div");
+//           postDeskr.classList.add("post-deskr");
+
+//           postTitle.textContent = post.title;
+//           postDeskr.textContent = post.description;
+
+//           postDate.textContent = post.publishDate;
+//           postElement.append(postBg, postTitle, postDeskr, postDate);
+//           postsContainer.appendChild(postElement);
 //         });
-        
-        
-//         postDate.textContent = post.publishDate;
 
-//         // Рендеримо дані поста
-//         postElement.append(postTitle, postContent, postDate);
+//         start += limit; // Збільшуємо стартовий індекс для наступного запиту
 
-//         postsContainer.appendChild(postElement);
-//       });
-//     } else {
-//       postsContainer.innerHTML = "<p>Немає постів</p>";
+//         // Якщо отримано менше постів, ніж limit, то ховаємо кнопку
+//         if (posts.length < limit) {
+//           loadMoreButton.style.display = "none";
+//         } else {
+//           loadMoreButton.style.display = "block";
+//         }
+//       } else {
+//         loadMoreButton.style.display = "none"; // Якщо постів більше немає, ховаємо кнопку
+//       }
+//     } catch (error) {
+//       console.error("Помилка завантаження постів:", error);
+//       postsContainer.innerHTML = "<p>Не вдалося завантажити пости</p>";
 //     }
-//   } catch (error) {
-//     console.error("Помилка завантаження постів:", error);
-//     postsContainer.innerHTML = "<p>Не вдалося завантажити пости</p>";
 //   }
+
+//   // Початкове завантаження перших постів
+//   loadPosts();
+
+//   // Додаємо кнопку після контейнера постів
+//   postsContainer.after(loadMoreButton);
+
+//   // Обробник кліку для кнопки "Завантажити ще"
+//   loadMoreButton.addEventListener("click", loadPosts);
 // });
 
 
@@ -97,57 +96,36 @@ document.addEventListener("DOMContentLoaded", async () => {
           const postElement = document.createElement("div");
           postElement.classList.add("post");
 
-          // const postBg = document.createElement("img");
-          // postBg.classList.add("post-bg");
-          // postBg.src = post.poster;
+          const postLink = document.createElement("a"); // Створюємо посилання
+          postLink.href = `/post.html?slug=${post.slug}`; // Додаємо URL з slug
+          postLink.classList.add("post-link");
+
+          const postBg = document.createElement("img");
+          postBg.classList.add("post-bg");
+          postBg.src = post.poster;
 
           const postTitle = document.createElement("h2");
           postTitle.classList.add("post-title");
+          postTitle.textContent = post.title;
 
           const postDate = document.createElement("div");
           postDate.classList.add("post-date");
+          postDate.textContent = new Date(post.publishDate).toLocaleDateString();
 
-          const postContent = document.createElement("div");
-          postContent.classList.add("post-content");
+          const postDeskr = document.createElement("div");
+          postDeskr.classList.add("post-deskr");
+          postDeskr.textContent = post.description;
 
-          postTitle.textContent = post.title;
-
-          post.content.forEach(block => {
-            if (block._type === "contentText" && block.children) {
-              const text = block.children.map(child => child.text || "").join(" ").trim();
-              if (text) {
-                let element;
-                if (block.style === "h4") {
-                  element = document.createElement("h4");
-                } else if (block.style === "blockquote") {
-                  element = document.createElement("blockquote");
-                } else {
-                  element = document.createElement("p");
-                }
-                element.textContent = text;
-                postContent.appendChild(element);
-              }
-            } else if (block._type === "blokPostImage" && block.imageUrl) {
-              const image = document.createElement("img");
-              image.src = block.imageUrl;
-              image.alt = block.alt || "Зображення";
-              postContent.appendChild(image);
-            }
-          });
-
-          postDate.textContent = post.publishDate;
-          postElement.append(postTitle, postContent, postDate);
+          // Додаємо весь вміст у посилання
+          postLink.append(postBg, postTitle, postDeskr, postDate);
+          postElement.appendChild(postLink);
           postsContainer.appendChild(postElement);
         });
 
         start += limit; // Збільшуємо стартовий індекс для наступного запиту
 
         // Якщо отримано менше постів, ніж limit, то ховаємо кнопку
-        if (posts.length < limit) {
-          loadMoreButton.style.display = "none";
-        } else {
-          loadMoreButton.style.display = "block";
-        }
+        loadMoreButton.style.display = posts.length < limit ? "none" : "block";
       } else {
         loadMoreButton.style.display = "none"; // Якщо постів більше немає, ховаємо кнопку
       }
