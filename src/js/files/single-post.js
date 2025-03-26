@@ -10,36 +10,32 @@ import { getPosts } from './sanityAPI.js';
 // test fetch =========================================================
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const postsContainer = document.getElementById("posts");
-  const loadMoreButton = document.createElement("button");
-  loadMoreButton.textContent = "Завантажити ще";
-  loadMoreButton.id = "load-more";
-  loadMoreButton.style.display = "none"; // Ховаємо кнопку, поки не з'ясуємо, чи є ще пости
+  const postsContainer = document.getElementById("post");
+  
 
-  let start = 0; // Початковий індекс
-  const limit = 4; // Скільки постів завантажувати за раз
+ 
 
-  async function loadPosts() {
+  async function loadPost() {
     try {
-      const posts = await getPosts(start, limit);
+      const postsS = await getPosts();
 
       if (posts.length > 0) {
-        posts.forEach(post => {
+        postsS.forEach(post => {
           const postElement = document.createElement("div");
-          postElement.classList.add("post");
+          postElement.classList.add("post-s");
 
           // const postBg = document.createElement("img");
           // postBg.classList.add("post-bg");
           // postBg.src = post.poster;
 
           const postTitle = document.createElement("h2");
-          postTitle.classList.add("post-title");
+          postTitle.classList.add("post-title-s");
 
           const postDate = document.createElement("div");
-          postDate.classList.add("post-date");
+          postDate.classList.add("post-date-s");
 
           const postContent = document.createElement("div");
-          postContent.classList.add("post-content");
+          postContent.classList.add("post-content-s");
 
           postTitle.textContent = post.title;
 
@@ -71,16 +67,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           postsContainer.appendChild(postElement);
         });
 
-        start += limit; // Збільшуємо стартовий індекс для наступного запиту
-
-        // Якщо отримано менше постів, ніж limit, то ховаємо кнопку
-        if (posts.length < limit) {
-          loadMoreButton.style.display = "none";
-        } else {
-          loadMoreButton.style.display = "block";
-        }
+       
+       
       } else {
-        loadMoreButton.style.display = "none"; // Якщо постів більше немає, ховаємо кнопку
+        console.log('no post') // Якщо постів більше немає, ховаємо кнопку
       }
     } catch (error) {
       console.error("Помилка завантаження постів:", error);
@@ -89,13 +79,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Початкове завантаження перших постів
-  loadPosts();
+  loadPost();
 
   // Додаємо кнопку після контейнера постів
-  postsContainer.after(loadMoreButton);
-
-  // Обробник кліку для кнопки "Завантажити ще"
-  loadMoreButton.addEventListener("click", loadPosts);
+  
 });
 
   

@@ -79,13 +79,17 @@ import { getPosts } from './sanityAPI.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
   const postsContainer = document.getElementById("posts");
+
+  // Перевіряємо, чи є контейнер постів на сторінці
+  if (!postsContainer) return;
+
   const loadMoreButton = document.createElement("button");
   loadMoreButton.textContent = "Завантажити ще";
   loadMoreButton.id = "load-more";
   loadMoreButton.style.display = "none"; // Ховаємо кнопку, поки не з'ясуємо, чи є ще пости
 
-  let start = 0; // Початковий індекс
-  const limit = 4; // Скільки постів завантажувати за раз
+  let start = 0;
+  const limit = 4;
 
   async function loadPosts() {
     try {
@@ -96,8 +100,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           const postElement = document.createElement("div");
           postElement.classList.add("post");
 
-          const postLink = document.createElement("a"); // Створюємо посилання
-          postLink.href = `/post.html?slug=${post.slug}`; // Додаємо URL з slug
+          const postLink = document.createElement("a");
+          postLink.href = `/post.html?slug=${post.slug}`;
           postLink.classList.add("post-link");
 
           const postBg = document.createElement("img");
@@ -116,18 +120,15 @@ document.addEventListener("DOMContentLoaded", async () => {
           postDeskr.classList.add("post-deskr");
           postDeskr.textContent = post.description;
 
-          // Додаємо весь вміст у посилання
           postLink.append(postBg, postTitle, postDeskr, postDate);
           postElement.appendChild(postLink);
           postsContainer.appendChild(postElement);
         });
 
-        start += limit; // Збільшуємо стартовий індекс для наступного запиту
-
-        // Якщо отримано менше постів, ніж limit, то ховаємо кнопку
+        start += limit;
         loadMoreButton.style.display = posts.length < limit ? "none" : "block";
       } else {
-        loadMoreButton.style.display = "none"; // Якщо постів більше немає, ховаємо кнопку
+        loadMoreButton.style.display = "none";
       }
     } catch (error) {
       console.error("Помилка завантаження постів:", error);
@@ -135,14 +136,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  // Початкове завантаження перших постів
   loadPosts();
-
-  // Додаємо кнопку після контейнера постів
   postsContainer.after(loadMoreButton);
-
-  // Обробник кліку для кнопки "Завантажити ще"
   loadMoreButton.addEventListener("click", loadPosts);
 });
+
 
   

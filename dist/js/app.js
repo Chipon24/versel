@@ -3919,6 +3919,30 @@
             heroContainer.innerHTML = "<p>Не вдалося завантажити дані Hero</p>";
         }
     }));
+    document.addEventListener("DOMContentLoaded", (async () => {
+        if (!window.location.pathname.includes("post.html")) return;
+        const urlParams = new URLSearchParams(window.location.search);
+        const slug = urlParams.get("slug");
+        if (!slug) {
+            document.body.innerHTML = "<h1>Пост не знайдено</h1>";
+            return;
+        }
+        try {
+            const query = encodeURIComponent(`*[_type == "post" && slug.current == "${slug}"][0]`);
+            const response = await fetch(`https://qniqk200.api.sanity.io/v2021-06-07/data/query/production?query=${query}`);
+            const data = await response.json();
+            console.log("Отримані дані:", data);
+            const post = data.result;
+            if (!post) {
+                document.body.innerHTML = "<h1>Пост не знайдено</h1>";
+                return;
+            }
+            document.getElementById("post-single").innerHTML = `\n        <h1>${post.title}</h1>\n        <img src="${post.poster}" alt="${post.title}" style="max-width:100%;">\n        <div>${new Date(post.publishDate).toLocaleDateString()}</div>\n        <div>${post.content?.map((block => block._type === "block" ? `<p>${block.children?.map((child => child.text)).join(" ")}</p>` : "")).join("") || "<p>Опис відсутній</p>"}</div>\n      `;
+        } catch (error) {
+            console.error("Помилка отримання поста:", error);
+            document.body.innerHTML = "<h1>Помилка завантаження поста</h1>";
+        }
+    }));
     let addWindowScrollEvent = false;
     setTimeout((() => {
         if (addWindowScrollEvent) {
@@ -3930,6 +3954,7 @@
     }), 0);
     document.addEventListener("DOMContentLoaded", (async () => {
         const postsContainer = document.getElementById("posts");
+        if (!postsContainer) return;
         const loadMoreButton = document.createElement("button");
         loadMoreButton.textContent = "Завантажити ще";
         loadMoreButton.id = "load-more";
