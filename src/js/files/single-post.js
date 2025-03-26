@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   async function loadPost() {
     try {
-      const postsS = await getPosts();
+      const posts = await getPosts();
 
       if (posts.length > 0) {
-        postsS.forEach(post => {
+        posts.forEach(post => {
           const postElement = document.createElement("div");
           postElement.classList.add("post-s");
 
