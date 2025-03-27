@@ -38,23 +38,7 @@ export async function getPosts(start = 0, limit = 4) {
     description,
     "slug": slug.current,
     "poster": poster.asset->url,
-    "content": content[] {
-      ...,
-      _type == "block" => {
-        _key,
-        _type,
-        style,
-        "children": children[] {
-          _key,
-          "text": text
-        }
-      },
-      _type == "blokPostImage" => {
-        _key,
-        "imageUrl": asset->url,
-        "alt": image.alt
-      }
-    }
+    
   }`;
 
   try {
