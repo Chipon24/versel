@@ -57,7 +57,7 @@ export async function getSingle(slug) {
     meta_title,
     publishDate,
     "slug": slug.current,
-    "poster": poster.asset->url,
+    
     "content": content[] {
       ...,
       _type == "block" => {
@@ -78,11 +78,10 @@ export async function getSingle(slug) {
   }`;
 
   try {
-    const response = await fetch(`https://qniqk200.api.sanity.io/v2021-06-07/data/query/production?query=${encodeURIComponent(query)}`);
-    const data = await response.json();
-    console.log("Отриманий пост:", data);
+    const single = await sanityClient.fetch(query);
+    console.log("Отриманий пост:", single);
     
-    return data.result;
+    return single;
   } catch (error) {
     console.error("Помилка отримання поста:", error);
     return null;
