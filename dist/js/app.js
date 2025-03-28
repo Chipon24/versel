@@ -3974,6 +3974,7 @@
             document.body.innerHTML = "<h1>Помилка завантаження поста</h1>";
         }
     }));
+    console.log("Привіт це нова папка скриптів!!!");
     let addWindowScrollEvent = false;
     setTimeout((() => {
         if (addWindowScrollEvent) {

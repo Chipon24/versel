@@ -12,15 +12,39 @@
             padding: toRem(15);
             border: 2px solid goldenrod;
             overflow: hidden;
-            
-               
-                background-color: rgb(203, 30, 219);
-                // opacity: 0.341;
-               
-              
-              
-
+            font-weight: 300;
+            line-height: 1.3;
+            font-size: toRem(16);
+            text-align: center;
            }
+        }
+        .single {
+            padding-top: toRem(50);
+            display: flex;
+            flex-direction: column;
+            row-gap: toRem(15);
+            overflow: hidden;
+            h1 {
+                font-size: toRem(30);
+                font-weight: 600;
+            }
+            div {
+                font-weight: 400;
+                font-style: italic;
+                padding-bottom: toRem(20);
+                border-bottom: 1px solid rgba(173, 163, 163, 0.856);
+            }
+            p {
+                font-weight: 300;
+                font-style: normal;
+                line-height: 1.3;
+                font-size: 18px;
+            }
+            img {
+                padding-top: toRem(10);
+                padding-bottom: toRem(10);
+                text-align: center;
+            }
         }
     }
 
