@@ -14,27 +14,35 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const hero = await getHero();  // Отримуємо дані Hero
+    const hero = await getHero(); // Отримуємо дані Hero
 
-    console.log(hero); // Перевіряємо, що саме отримуємо
+    console.log(hero); // Лог для перевірки отриманих даних
 
-    // Перевірка на наявність полів heroTitle і heroDescription
-    if (hero && hero[0] && hero[0].heroTitle && hero[0].heroDescription) {
-      const heroElement = document.createElement("div");
-      heroElement.classList.add("hero-content");
+    if (Array.isArray(hero) && hero.length > 0) {
+      const { heroTitle, heroDescription } = hero[0]; // Деструктуризація для зручності
 
-      heroElement.innerHTML = `
-        <h1>${hero[0].heroTitle}</h1>
-        <h2>${hero[0].heroDescription}</h2>
-      `;
+      // Перевіряємо, чи є хоча б одне заповнене поле
+      if (heroTitle || heroDescription) {
+        const heroElement = document.createElement("div");
+        heroElement.classList.add("hero-content");
 
-      heroContainer.appendChild(heroElement);
-    } else {
-      heroContainer.innerHTML = "<p>Немає даних про Hero</p>";
+        if (heroTitle) {
+          const titleElement = document.createElement("h1");
+          titleElement.textContent = heroTitle;
+          heroElement.appendChild(titleElement);
+        }
+
+        if (heroDescription) {
+          const descriptionElement = document.createElement("h2");
+          descriptionElement.textContent = heroDescription;
+          heroElement.appendChild(descriptionElement);
+        }
+
+        heroContainer.appendChild(heroElement);
+      }
     }
   } catch (error) {
     console.error("Помилка завантаження даних Hero:", error);
-    heroContainer.innerHTML = "<p>Не вдалося завантажити дані Hero</p>";
   }
 });
 

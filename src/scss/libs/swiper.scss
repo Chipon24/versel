@@ -53,9 +53,20 @@
 .swiper-slide {
 	flex-shrink: 0;
 	width: 100%;
-	height: 100%;
+	height: toRem(450);
 	position: relative;
 	transition-property: transform;
+	overflow: hidden;
+	border-radius: toRem(20);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover; // або 'contain', якщо потрібно зберігати повний кадр
+	  }
 }
 .swiper-slide-invisible-blank {
 	visibility: hidden;
@@ -181,7 +192,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--swiper-navigation-color, var(--swiper-theme-color));
+	color: white;
 }
 .swiper-button-next.swiper-button-disabled,
 .swiper-button-prev.swiper-button-disabled {
@@ -192,7 +203,7 @@
 .swiper-button-next:after,
 .swiper-button-prev:after {
 	font-family: swiper-icons;
-	font-size: var(--swiper-navigation-size);
+	font-size: toRem(30);
 	text-transform: none !important;
 	letter-spacing: 0;
 	text-transform: none;
@@ -265,8 +276,10 @@
 	transform: scale(0.33);
 }
 .swiper-pagination-bullet {
-	width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
-	height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px));
+	// width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
+	// height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px));
+	width: toRem(14);
+	height: toRem(14);
 	display: inline-block;
 	border-radius: 50%;
 	background: var(--swiper-pagination-bullet-inactive-color, #000);
@@ -298,7 +311,7 @@ button.swiper-pagination-bullet {
 }
 .swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
-	margin: var(--swiper-pagination-bullet-vertical-gap, 6px) 0;
+	margin: var(--swiper-pagination-bullet-vertical-gap, 16px) 0;
 	display: block;
 }
 .swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,

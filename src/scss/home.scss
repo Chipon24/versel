@@ -1,6 +1,8 @@
 //====================================================================================================
 
     .sanity__container {
+        position: relative;
+        overflow: hidden;
         .sanity-content {
             display: grid;
             grid-template-columns: repeat(2,1fr);
@@ -49,36 +51,38 @@
 
 #person {
     display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: toRem(15);
             overflow: hidden;
   .person-content {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
     row-gap: toRem(5);
     min-width: 0;
     word-wrap: break-word;
     background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, .125);
-    border-radius: .25rem;
+    // border: 1px solid rgba(0, 0, 0, .125);
+    // border-radius: .25rem;
             img {
                 display: block;
                 width: 100%;
                 height: auto;
+                border-radius: toRem(20);
             }
             h4 {
-                color: #4F9758;
+                color: #1C592C;
                 text-transform: uppercase;
                 font-size: toRem(18);
                 text-align: center;
                 font-weight: 700;
-                
+                font-family: $fontSecond;
             }
             h5 {
                 font-size: toRem(16);
                 text-align: center;
+                font-family: $fontSecond;
                 font-weight: 700;
                 padding: toRem(10);
             }
@@ -90,6 +94,43 @@
             }
         }  
 }
+
+.hero {
+    display: grid;
+    grid-template-columns: 35% 1fr;
+    gap: toRem(15);
+padding-top: toRem(20);
+padding-bottom: toRem(30);
+    #hero {
+        display: flex;
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h1 {
+            @include adaptiveValue("font-size", 44,18 );
+            font-family: $fontSecond;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+            // background: linear-gradient(45deg, rgb(0, 96, 255), rgb(75, 215, 0), rgb(221, 174, 138));
+            // -webkit-background-clip: text;
+            // -webkit-text-fill-color: transparent;
+            // display: inline-block; 
+        }
+
+    }
+}
+#heroMedia {
+    display: flex;
+    overflow: hidden;
+}
+}
+
+
+
 
         
     }

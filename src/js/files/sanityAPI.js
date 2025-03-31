@@ -80,3 +80,13 @@ export async function getPerson() {
 
   return await sanityClient.fetch(query);
 };
+
+export async function getHeroSlider() {
+  const query = `*[_type == "heroMedia"]{
+    heroTitle,
+    heroDescription,
+    "heroGallery": heroGallery[].asset->url
+  }`;
+
+  return await sanityClient.fetch(query);
+}
