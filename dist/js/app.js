@@ -3910,6 +3910,10 @@
         const query = `*[_type == "hero"]{\n    heroTitle,\n    heroDescription\n  }`;
         return await sanityClient.fetch(query);
     }
+    async function getPerson() {
+        const query = `*[_type == "person"]{\n    personName,\n    personPosition,\n    personDescription,\n    "personImage": personImage.asset->url,\n  }`;
+        return await sanityClient.fetch(query);
+    }
     document.addEventListener("DOMContentLoaded", (async () => {
         const heroContainer = document.getElementById("hero");
         if (!heroContainer) {
@@ -3974,7 +3978,32 @@
             document.body.innerHTML = "<h1>Помилка завантаження поста</h1>";
         }
     }));
-    console.log("Привіт це нова папка скриптів!!!");
+    document.addEventListener("DOMContentLoaded", (async () => {
+        const personContainer = document.getElementById("person");
+        if (!personContainer) {
+            console.error("Контейнер для Person не знайдений");
+            return;
+        }
+        try {
+            const personData = await getPerson();
+            console.log(personData);
+            if (!Array.isArray(personData) || personData.length === 0) {
+                personContainer.innerHTML = "<p>Немає даних про Person</p>";
+                return;
+            }
+            personData.forEach((person => {
+                if (person?.personName && person?.personPosition && person?.personDescription && person?.personImage) {
+                    const personElement = document.createElement("div");
+                    personElement.classList.add("person-content");
+                    personElement.innerHTML = `\n          <img src="${person.personImage}" alt="${person.personName}">\n            <h4>${person.personName}</h4>\n            <h5>${person.personPosition}</h5>\n            <p>${person.personDescription}</p>\n            \n          `;
+                    personContainer.appendChild(personElement);
+                }
+            }));
+        } catch (error) {
+            console.error("Помилка завантаження даних Person:", error);
+            personContainer.innerHTML = "<p>Не вдалося завантажити дані Person</p>";
+        }
+    }));
     let addWindowScrollEvent = false;
     setTimeout((() => {
         if (addWindowScrollEvent) {
