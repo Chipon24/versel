@@ -96,14 +96,14 @@ h6 {
   min-width: 0
 }
 [class*=__container] {
-  max-width: 75rem;
+  max-width: 76.875rem;
   margin: 0 auto;
   padding: 0 .9375rem
 }
 [class*="--gc"] {
   display: grid;
   min-width: 0;
-  grid-template-columns: .9375rem 1fr minmax(auto,73.125rem) 1fr .9375rem
+  grid-template-columns: .9375rem 1fr minmax(auto,75rem) 1fr .9375rem
 }
 [class*="--gc"]>* {
   min-width: 0;
@@ -186,7 +186,7 @@ h6 {
 }
 .sanity__container #person {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(auto-fill,minmax(min(220px,100%),1fr));
   gap: .9375rem;
   overflow: hidden
 }
@@ -298,7 +298,7 @@ h6 {
 .swiper-slide {
   flex-shrink: 0;
   width: 100%;
-  height: 28.125rem;
+  height: auto;
   position: relative;
   transition-property: -webkit-transform;
   transition-property: transform;
@@ -311,7 +311,7 @@ h6 {
 }
 .swiper-slide img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 700/393;
   -o-object-fit: cover;
   object-fit: cover
 }
@@ -950,7 +950,7 @@ button.swiper-pagination-bullet {
 .swiper-slide {
   flex-shrink: 0;
   width: 100%;
-  height: toRem(450);
+  height: auto;
   position: relative;
   transition-property: -webkit-transform;
   transition-property: transform;
@@ -963,7 +963,7 @@ button.swiper-pagination-bullet {
 }
 .swiper-slide img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 700/393;
   -o-object-fit: cover;
   object-fit: cover
 }
@@ -1520,7 +1520,7 @@ button.swiper-pagination-bullet {
   backface-visibility: hidden;
   overflow: hidden
 }
-@media (min-width:75em) {
+@media (min-width:76.875em) {
   .sanity__container .hero #hero .hero-content h1 {
     font-size: 2.75rem
   }
@@ -1530,8 +1530,13 @@ button.swiper-pagination-bullet {
     font-size: 1.125rem
   }
 }
-@media (min-width:20em)and (max-width:75em) {
+@media (max-width:47.99875em) {
+  .sanity__container .hero {
+    grid-template-columns: 1fr
+  }
+}
+@media (min-width:20em)and (max-width:76.875em) {
   .sanity__container .hero #hero .hero-content h1 {
-    font-size: clamp(1.125rem ,.5340909091rem + 2.9545454545vw ,2.75rem)
+    font-size: clamp(1.125rem ,.5535714286rem + 2.8571428571vw ,2.75rem)
   }
 }

@@ -51,7 +51,8 @@
 
 #person {
     display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            // grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
             gap: toRem(15);
             overflow: hidden;
   .person-content {
@@ -101,6 +102,9 @@
     gap: toRem(15);
 padding-top: toRem(20);
 padding-bottom: toRem(30);
+@media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+}
     #hero {
         display: flex;
     .hero-content {

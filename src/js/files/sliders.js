@@ -34,22 +34,23 @@ function initSliders() {
 			// Підключаємо модулі слайдера
 			// для конкретного випадку
 			modules: [Navigation, Pagination, Autoplay, EffectFade],
-			observer: true,
-			observeParents: true,
+			// observer: true,
+			// observeParents: true,
 			slidesPerView: 1,
 			spaceBetween: 0,
 			//autoHeight: true,
-			speed: 800,
+			speed: 1100,
 
 			//touchRatio: 0,
 			//simulateTouch: false,
 			loop: true,
-			//preloadImages: false,
+			preloadImages: false,
 			//lazy: true,
 
 			autoplay: {
 				delay: 2000, // Час між змінами слайдів (в мілісекундах)
-				disableOnInteraction: false, // Не вимикати автоплей при взаємодії
+				disableOnInteraction: false,
+				waitForTransition: false, // Не вимикати автоплей при взаємодії
 			},
 
 			effect: "fade",

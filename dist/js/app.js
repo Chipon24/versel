@@ -4118,15 +4118,15 @@
     function initSliders() {
         if (document.querySelector(".swiper")) new swiper_core_Swiper(".swiper", {
             modules: [ Navigation, Pagination, Autoplay, EffectFade ],
-            observer: true,
-            observeParents: true,
             slidesPerView: 1,
             spaceBetween: 0,
-            speed: 800,
+            speed: 1100,
             loop: true,
+            preloadImages: false,
             autoplay: {
                 delay: 2e3,
-                disableOnInteraction: false
+                disableOnInteraction: false,
+                waitForTransition: false
             },
             effect: "fade",
             fadeEffect: {
