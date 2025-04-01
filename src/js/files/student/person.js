@@ -23,11 +23,14 @@ document.addEventListener("DOMContentLoaded", async () => {
           personElement.classList.add("person-content");
   
           personElement.innerHTML = `
-          <img src="${person.personImage}" alt="${person.personName}">
+          
             <h4>${person.personName}</h4>
-            <h5>${person.personPosition}</h5>
-            <p>${person.personDescription}</p>
-            
+            <img src="${person.personImage}" alt="${person.personName}">
+
+           <div class="person-details">
+                <h5>${person.personPosition}</h5>
+                <p>${person.personDescription}</p>
+            </div>
           `;
   
           personContainer.appendChild(personElement);

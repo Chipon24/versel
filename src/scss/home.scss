@@ -5,19 +5,74 @@
         overflow: hidden;
         .sanity-content {
             display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: toRem(18);
+            grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+            // display: flex;
+            // flex-wrap: wrap;
+            gap: toRem(15);
            .post {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            padding: toRem(15);
-            border: 2px solid goldenrod;
+            display: grid;
+	        gap: 10px;
             overflow: hidden;
+           
+            position: relative;
+            &:after {
+                content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: toRem(20);
+    background: linear-gradient(
+        135deg, 
+        rgba(0, 0, 0, 0.3) 0%, 
+        rgba(0, 0, 0, 0.2) 50%, 
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    box-shadow: inset 0 toRem(4) toRem(10) rgba(0, 0, 0, 0.2); 
+                }
+            
+.post-link {
+
+     
+    }
+     img {
+        width: 100%;
+        aspect-ratio: 300 / 200;
+        object-fit: cover;
+        border-radius: toRem(20);
+        }
+        .post-title {
+            position: absolute;
+            top: toRem(15);
+            left: toRem(15);
+                width: 95%;
+                height: 100%;
+                color: #fff;
+                font-weight: 400;
+                line-height: 1.4;
+                font-size: toRem(16);
+                padding: toRem(5) toRem(10);
+                z-index: 15;
+                text-shadow: toRem(2) toRem(2) toRem(4) rgba(0, 0, 0, 0.6);
+        }
+        .post-date  {
+            position: absolute;
+            bottom: toRem(15); /* Відступ від нижнього краю */
+            right: toRem(15); /* Відступ від правого краю */
+            color: #fff;
+            
+            padding: toRem(5) toRem(10); /* Відступи всередині */
             font-weight: 300;
-            line-height: 1.3;
-            font-size: toRem(16);
-            text-align: center;
+            font-size: toRem(14); 
+            font-style: italic;
+            text-shadow: toRem(2) toRem(2) toRem(4) rgba(0, 0, 0, 0.6);
+        }
+        .post-deskr {
+            display: none;
+        }
+    }
+           
            }
         }
         .single {
@@ -59,18 +114,46 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    // display: grid;
+	// grid-template-rows: auto 1fr  auto;
     // justify-content: space-between;
-    row-gap: toRem(5);
+    // gap: toRem(10);
+    height: 100%;
     min-width: 0;
     word-wrap: break-word;
     background-color: #fff;
     // border: 1px solid rgba(0, 0, 0, .125);
     // border-radius: .25rem;
+    .person-details {
+        display: flex;
+        flex-direction: column;
+        
+    //     display: grid;
+	// grid-template-rows: 1fr auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    // border-bottom-left-radius: 20px;
+        gap: toRem(10);
+        height: 100%;
+        background-color: #a1a1a148;
+        border-radius: 0px 0px 19px 24px / 0px 0px 18px 19px;
+        // -webkit-box-shadow: -6px 6px 8px 4px rgba(156,156,156,1);
+        // -moz-box-shadow: -6px 6px 8px 4px rgba(156,156,156,1);
+        // box-shadow: -6px 6px 8px 4px rgba(156,156,156,1);
+p {
+    display: flex;
+    height: 100%;
+}
+    }
             img {
-                display: block;
+                
                 width: 100%;
-                height: auto;
-                border-radius: toRem(20);
+                // height: auto;
+                aspect-ratio: 228 / 340;
+                object-fit: cover;
+                border-radius: 20px 20px 0 0 / 25px 25px 0 0;
+                
             }
             h4 {
                 color: #1C592C;
@@ -85,13 +168,13 @@
                 text-align: center;
                 font-family: $fontSecond;
                 font-weight: 700;
-                padding: toRem(10);
+                // padding: toRem(10);
             }
             p {
                 font-size: toRem(16);
-                text-align: center;
+                 text-align: center;
                 font-weight: 300;
-                padding: toRem(10);
+                // padding: toRem(10);
             }
         }  
 }
@@ -137,6 +220,6 @@ padding-bottom: toRem(30);
 
 
         
-    }
+    
 
 //====================================================================================================

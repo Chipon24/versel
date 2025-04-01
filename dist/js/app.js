@@ -4124,7 +4124,7 @@
             loop: true,
             preloadImages: false,
             autoplay: {
-                delay: 2e3,
+                delay: 3e3,
                 disableOnInteraction: false,
                 waitForTransition: false
             },
@@ -7925,7 +7925,7 @@
                 if (person?.personName && person?.personPosition && person?.personDescription && person?.personImage) {
                     const personElement = document.createElement("div");
                     personElement.classList.add("person-content");
-                    personElement.innerHTML = `\n          <img src="${person.personImage}" alt="${person.personName}">\n            <h4>${person.personName}</h4>\n            <h5>${person.personPosition}</h5>\n            <p>${person.personDescription}</p>\n            \n          `;
+                    personElement.innerHTML = `\n          \n            <h4>${person.personName}</h4>\n            <img src="${person.personImage}" alt="${person.personName}">\n\n           <div class="person-details">\n                <h5>${person.personPosition}</h5>\n                <p>${person.personDescription}</p>\n            </div>\n          `;
                     personContainer.appendChild(personElement);
                 }
             }));

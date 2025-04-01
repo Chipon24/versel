@@ -48,7 +48,7 @@ function initSliders() {
 			//lazy: true,
 
 			autoplay: {
-				delay: 2000, // Час між змінами слайдів (в мілісекундах)
+				delay: 3000, // Час між змінами слайдів (в мілісекундах)
 				disableOnInteraction: false,
 				waitForTransition: false, // Не вимикати автоплей при взаємодії
 			},

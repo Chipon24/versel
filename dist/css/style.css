@@ -141,71 +141,127 @@ h6 {
 }
 .sanity__container .sanity-content {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 1.125rem
+  grid-template-columns: repeat(auto-fill,minmax(min(300px,100%),1fr));
+  gap: .9375rem
 }
 .sanity__container .sanity-content .post {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  padding: .9375rem;
-  border: 2px solid #daa520;
+  display: grid;
+  gap: 10px;
   overflow: hidden;
-  font-weight: 300;
-  line-height: 1.3;
-  font-size: 1rem;
-  text-align: center
+  position: relative
 }
-.sanity__container .single {
+.sanity__container .sanity-content .post:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg,rgba(0,0,0,.3) 0,rgba(0,0,0,.2) 50%,rgba(255,255,255,.05) 100%);
+  box-shadow: inset 0 .25rem .625rem rgba(0,0,0,.2)
+}
+.sanity__container .sanity-content .post img {
+  width: 100%;
+  aspect-ratio: 300/200;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 1.25rem
+}
+.sanity__container .sanity-content .post .post-title {
+  position: absolute;
+  top: .9375rem;
+  left: .9375rem;
+  width: 95%;
+  height: 100%;
+  color: #fff;
+  font-weight: 400;
+  line-height: 1.4;
+  font-size: 1rem;
+  padding: .3125rem .625rem;
+  z-index: 15;
+  text-shadow: .125rem .125rem .25rem rgba(0,0,0,.6)
+}
+.sanity__container .sanity-content .post .post-date {
+  position: absolute;
+  bottom: .9375rem;
+  right: .9375rem;
+  color: #fff;
+  padding: .3125rem .625rem;
+  font-weight: 300;
+  font-size: .875rem;
+  font-style: italic;
+  text-shadow: .125rem .125rem .25rem rgba(0,0,0,.6)
+}
+.sanity__container .sanity-content .post .post-deskr {
+  display: none
+}
+.single {
   padding-top: 3.125rem;
   display: flex;
   flex-direction: column;
   row-gap: .9375rem;
   overflow: hidden
 }
-.sanity__container .single h1 {
+.single h1 {
   font-size: 1.875rem;
   font-weight: 600
 }
-.sanity__container .single div {
+.single div {
   font-weight: 400;
   font-style: italic;
   padding-bottom: 1.25rem;
   border-bottom: 1px solid rgba(173,163,163,.856)
 }
-.sanity__container .single p {
+.single p {
   font-weight: 300;
   font-style: normal;
   line-height: 1.3;
   font-size: 18px
 }
-.sanity__container .single img {
+.single img {
   padding-top: .625rem;
   padding-bottom: .625rem;
   text-align: center
 }
-.sanity__container #person {
+#person {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(min(220px,100%),1fr));
   gap: .9375rem;
   overflow: hidden
 }
-.sanity__container #person .person-content {
+#person .person-content {
   position: relative;
   display: flex;
   flex-direction: column;
-  row-gap: .3125rem;
+  height: 100%;
   min-width: 0;
   word-wrap: break-word;
   background-color: #fff
 }
-.sanity__container #person .person-content img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 1.25rem
+#person .person-content .person-details {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  gap: .625rem;
+  height: 100%;
+  background-color: rgba(161,161,161,.2823529412);
+  border-radius: 0 0 19px 24px/0 0 18px 19px
 }
-.sanity__container #person .person-content h4 {
+#person .person-content .person-details p {
+  display: flex;
+  height: 100%
+}
+#person .person-content img {
+  width: 100%;
+  aspect-ratio: 228/340;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0/25px 25px 0 0
+}
+#person .person-content h4 {
   color: #1c592c;
   text-transform: uppercase;
   font-size: 1.125rem;
@@ -213,42 +269,40 @@ h6 {
   font-weight: 700;
   font-family: Arsenal,sans-serif
 }
-.sanity__container #person .person-content h5 {
+#person .person-content h5 {
   font-size: 1rem;
   text-align: center;
   font-family: Arsenal,sans-serif;
-  font-weight: 700;
-  padding: .625rem
+  font-weight: 700
 }
-.sanity__container #person .person-content p {
+#person .person-content p {
   font-size: 1rem;
   text-align: center;
-  font-weight: 300;
-  padding: .625rem
+  font-weight: 300
 }
-.sanity__container .hero {
+.hero {
   display: grid;
   grid-template-columns: 35% 1fr;
   gap: .9375rem;
   padding-top: 1.25rem;
   padding-bottom: 1.875rem
 }
-.sanity__container .hero #hero {
+.hero #hero {
   display: flex
 }
-.sanity__container .hero #hero .hero-content {
+.hero #hero .hero-content {
   display: flex;
   flex-direction: column;
   justify-content: center
 }
-.sanity__container .hero #hero .hero-content h1 {
+.hero #hero .hero-content h1 {
   font-family: Arsenal,sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;
   line-height: 1.2
 }
-.sanity__container .hero #heroMedia {
+.hero #heroMedia {
   display: flex;
   overflow: hidden
 }
@@ -1521,22 +1575,22 @@ button.swiper-pagination-bullet {
   overflow: hidden
 }
 @media (min-width:76.875em) {
-  .sanity__container .hero #hero .hero-content h1 {
+  .hero #hero .hero-content h1 {
     font-size: 2.75rem
   }
 }
 @media (max-width:20em) {
-  .sanity__container .hero #hero .hero-content h1 {
+  .hero #hero .hero-content h1 {
     font-size: 1.125rem
   }
 }
 @media (max-width:47.99875em) {
-  .sanity__container .hero {
+  .hero {
     grid-template-columns: 1fr
   }
 }
 @media (min-width:20em)and (max-width:76.875em) {
-  .sanity__container .hero #hero .hero-content h1 {
+  .hero #hero .hero-content h1 {
     font-size: clamp(1.125rem ,.5535714286rem + 2.8571428571vw ,2.75rem)
   }
 }
