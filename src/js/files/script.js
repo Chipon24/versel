@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   loadMoreButton.style.display = "none"; // Ховаємо кнопку, поки не з'ясуємо, чи є ще пости
 
   let start = 0;
-  const limit = 4;
+  const limit = 6;
 
   async function loadPosts() {
     try {
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
 
         start += limit;
-        loadMoreButton.style.display = posts.length < limit ? "none" : "block";
+        loadMoreButton.style.display = posts.length < limit ? "none" : "flex";
       } else {
         loadMoreButton.style.display = "none";
       }

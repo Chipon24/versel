@@ -23,10 +23,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           personElement.classList.add("person-content");
   
           personElement.innerHTML = `
-          
+          <div class="person-header">
             <h4>${person.personName}</h4>
             <img src="${person.personImage}" alt="${person.personName}">
-
+          </div>
            <div class="person-details">
                 <h5>${person.personPosition}</h5>
                 <p>${person.personDescription}</p>

@@ -231,6 +231,49 @@
         chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
         chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
     })();
+    let bodyLockStatus = true;
+    let bodyLockToggle = (delay = 500) => {
+        if (document.documentElement.classList.contains("lock")) bodyUnlock(delay); else bodyLock(delay);
+    };
+    let bodyUnlock = (delay = 500) => {
+        if (bodyLockStatus) {
+            const lockPaddingElements = document.querySelectorAll("[data-lp]");
+            setTimeout((() => {
+                lockPaddingElements.forEach((lockPaddingElement => {
+                    lockPaddingElement.style.paddingRight = "";
+                }));
+                document.body.style.paddingRight = "";
+                document.documentElement.classList.remove("lock");
+            }), delay);
+            bodyLockStatus = false;
+            setTimeout((function() {
+                bodyLockStatus = true;
+            }), delay);
+        }
+    };
+    let bodyLock = (delay = 500) => {
+        if (bodyLockStatus) {
+            const lockPaddingElements = document.querySelectorAll("[data-lp]");
+            const lockPaddingValue = window.innerWidth - document.body.offsetWidth + "px";
+            lockPaddingElements.forEach((lockPaddingElement => {
+                lockPaddingElement.style.paddingRight = lockPaddingValue;
+            }));
+            document.body.style.paddingRight = lockPaddingValue;
+            document.documentElement.classList.add("lock");
+            bodyLockStatus = false;
+            setTimeout((function() {
+                bodyLockStatus = true;
+            }), delay);
+        }
+    };
+    function menuInit() {
+        if (document.querySelector(".icon-menu")) document.addEventListener("click", (function(e) {
+            if (bodyLockStatus && e.target.closest(".icon-menu")) {
+                bodyLockToggle();
+                document.documentElement.classList.toggle("menu-open");
+            }
+        }));
+    }
     function ssr_window_esm_isObject(obj) {
         return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
     }
@@ -7799,7 +7842,7 @@
         useCdn: true,
         apiVersion: "2024-03-21"
     });
-    async function getPosts(start = 0, limit = 4) {
+    async function getPosts(start = 0, limit = 6) {
         const query = `*[_type == "post"] | order(publishDate desc) [${start}...${start + limit}]{\n    title,\n    meta_title,\n    publishDate,\n    description,\n    "slug": slug.current,\n    "poster": poster.asset->url,\n    \n  }`;
         try {
             const posts = await sanityClient.fetch(query);
@@ -7925,7 +7968,7 @@
                 if (person?.personName && person?.personPosition && person?.personDescription && person?.personImage) {
                     const personElement = document.createElement("div");
                     personElement.classList.add("person-content");
-                    personElement.innerHTML = `\n          \n            <h4>${person.personName}</h4>\n            <img src="${person.personImage}" alt="${person.personName}">\n\n           <div class="person-details">\n                <h5>${person.personPosition}</h5>\n                <p>${person.personDescription}</p>\n            </div>\n          `;
+                    personElement.innerHTML = `\n          <div class="person-header">\n            <h4>${person.personName}</h4>\n            <img src="${person.personImage}" alt="${person.personName}">\n          </div>\n           <div class="person-details">\n                <h5>${person.personPosition}</h5>\n                <p>${person.personDescription}</p>\n            </div>\n          `;
                     personContainer.appendChild(personElement);
                 }
             }));
@@ -7981,7 +8024,7 @@
         loadMoreButton.id = "load-more";
         loadMoreButton.style.display = "none";
         let start = 0;
-        const limit = 4;
+        const limit = 6;
         async function loadPosts() {
             try {
                 const posts = await getPosts(start, limit);
@@ -8009,7 +8052,7 @@
                         postsContainer.appendChild(postElement);
                     }));
                     start += limit;
-                    loadMoreButton.style.display = posts.length < limit ? "none" : "block";
+                    loadMoreButton.style.display = posts.length < limit ? "none" : "flex";
                 } else loadMoreButton.style.display = "none";
             } catch (error) {
                 console.error("Помилка завантаження постів:", error);
@@ -8021,4 +8064,5 @@
         loadMoreButton.addEventListener("click", loadPosts);
     }));
     window["FLS"] = true;
+    menuInit();
 })();

@@ -1,7 +1,7 @@
 import { sanityClient } from './sanityClient.js';
 
 
-export async function getPosts(start = 0, limit = 4) {
+export async function getPosts(start = 0, limit = 6) {
   const query = `*[_type == "post"] | order(publishDate desc) [${start}...${start + limit}]{
     title,
     meta_title,
