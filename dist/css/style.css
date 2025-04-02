@@ -95,15 +95,10 @@ h6 {
 .wrapper>* {
   min-width: 0
 }
-[class*=__container] {
-  max-width: 76.875rem;
-  margin: 0 auto;
-  padding: 0 .9375rem
-}
 [class*="--gc"] {
   display: grid;
   min-width: 0;
-  grid-template-columns: .9375rem 1fr minmax(auto,75rem) 1fr .9375rem
+  grid-template-columns: 9.375rem 1fr minmax(auto,0) 1fr 9.375rem
 }
 [class*="--gc"]>* {
   min-width: 0;
@@ -121,7 +116,8 @@ h6 {
 .menu__link {
   font-size: 16px;
   padding: 1.25rem 0;
-  color: #f5f6f8
+  color: #f5f6f8;
+  text-shadow: .0625rem .0625rem .125rem rgba(0,0,0,.5)
 }
 .icon-menu {
   display: none
@@ -158,7 +154,7 @@ h6 {
   left: 0;
   width: 100%;
   z-index: 50;
-  background-color: rgba(66,129,61,.37)
+  background-color: rgba(66,129,61,.77)
 }
 .header__menu {
   display: flex;
@@ -270,22 +266,19 @@ h6 {
   overflow: hidden
 }
 #person .person-content {
-  position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
   min-width: 0;
   word-wrap: break-word;
   background-color: #fff
 }
 #person .person-content .person-details {
-  display: flex;
-  flex-direction: column;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 15px;
-  gap: .625rem;
+  display: grid;
+  grid-template-rows: 2.1875rem auto;
+  justify-items: center;
   height: 100%;
+  gap: .625rem;
+  padding-top: 5px;
   border-radius: 0 0 19px 24px/0 0 18px 19px
 }
 #person .person-content .person-details h5 {
@@ -293,18 +286,22 @@ h6 {
   text-align: center;
   font-family: Arsenal,sans-serif;
   font-weight: 700;
-  padding: .625rem
+  display: flex;
+  height: 100%
 }
 #person .person-content .person-details p {
   font-size: 1rem;
   text-align: center;
-  font-weight: 300
+  font-weight: 300;
+  line-height: 1.2;
+  display: flex;
+  height: 100%
 }
 #person .person-content .person-header {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  position: relative
+  display: grid;
+  grid-template-rows: 3.4375rem auto;
+  justify-items: center;
+  height: 100%
 }
 #person .person-content .person-header img {
   width: 100%;
@@ -320,10 +317,13 @@ h6 {
   text-align: center;
   font-weight: 700;
   font-family: Arsenal,sans-serif;
-  padding: 5px 5px;
+  padding: 7px 2px;
   font-family: Arsenal,sans-serif;
   text-transform: uppercase;
-  min-height: 50px
+  min-height: 50px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center
 }
 .hero {
   padding-top: 3.75rem;
@@ -1639,7 +1639,13 @@ button.swiper-pagination-bullet {
   backface-visibility: hidden;
   overflow: hidden
 }
-@media (min-width:76.875em) {
+@media (min-width:120em) {
+  [class*=__container] {
+    padding-left: 9.375rem
+  }
+  [class*=__container] {
+    padding-right: 9.375rem
+  }
   #person .person-content .person-header h4 {
     font-size: 1.375rem
   }
@@ -1745,6 +1751,12 @@ button.swiper-pagination-bullet {
   }
 }
 @media (max-width:20em) {
+  [class*=__container] {
+    padding-left: .9375rem
+  }
+  [class*=__container] {
+    padding-right: .9375rem
+  }
   #person .person-content .person-header h4 {
     font-size: 1rem
   }
@@ -1763,17 +1775,23 @@ button.swiper-pagination-bullet {
     grid-template-columns: 1fr
   }
 }
-@media (min-width:20em)and (max-width:76.875em) {
+@media (min-width:20em)and (max-width:120em) {
+  [class*=__container] {
+    padding-left: clamp(.9375rem ,-.75rem + 8.4375vw ,9.375rem)
+  }
+  [class*=__container] {
+    padding-right: clamp(.9375rem ,-.75rem + 8.4375vw ,9.375rem)
+  }
   #person .person-content .person-header h4 {
-    font-size: clamp(1rem ,.8681318681rem + .6593406593vw ,1.375rem)
+    font-size: clamp(1rem ,.925rem + .375vw ,1.375rem)
   }
   .hero #hero .hero-content h1 {
-    font-size: clamp(1.75rem ,.9587912088rem + 3.956043956vw ,4rem)
+    font-size: clamp(1.75rem ,1.3rem + 2.25vw ,4rem)
   }
   .hero #hero .hero-content h2 {
-    font-size: clamp(1.125rem ,.8612637363rem + 1.3186813187vw ,1.875rem)
+    font-size: clamp(1.125rem ,.975rem + .75vw ,1.875rem)
   }
   .section-title {
-    font-size: clamp(1.75rem ,1.3983516484rem + 1.7582417582vw ,2.75rem)
+    font-size: clamp(1.75rem ,1.55rem + 1vw ,2.75rem)
   }
 }

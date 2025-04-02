@@ -59,6 +59,7 @@
 		font-size: 16px;
 		padding: toRem(20) 0;
 		color: #f5f6f8;
+		text-shadow: toRem(1) toRem(1) toRem(2) rgba(0, 0, 0, 0.5);
 		@media (max-width: 500px) {
 			padding: toRem(5) 0;
 		}

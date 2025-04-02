@@ -114,7 +114,7 @@
             gap: toRem(15);
             overflow: hidden;
   .person-content {
-    position: relative;
+    // position: relative;
     display: flex;
     flex-direction: column;
     // display: grid;
@@ -122,7 +122,7 @@
     // justify-content: space-between;
     // gap: toRem(10);
     
-    height: 100%;
+    // height: 100%;
     min-width: 0;
     word-wrap: break-word;
     background-color: #fff;
@@ -130,17 +130,20 @@
     // border-radius: .25rem;
     
     .person-details {
-        display: flex;
-        flex-direction: column;
-        
+        // display: flex;
+        // flex-direction: column;
+        display: grid;
+        grid-template-rows: toRem(35) auto;
+    justify-items: center;
+    height: 100%;
     //     display: grid;
 	// grid-template-rows: 1fr auto;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 15px;
+    // padding-left: 5px;
+    // padding-right: 5px;
+    // padding-bottom: 15px;
     // border-bottom-left-radius: 20px;
         gap: toRem(10);
-        height: 100%;
+        padding-top: 5px;
         // background-color: #e9e6e6a2;
         border-radius: 0px 0px 19px 24px / 0px 0px 18px 19px;
         // -webkit-box-shadow: -6px 6px 8px 4px rgba(156,156,156,1);
@@ -151,20 +154,28 @@
             text-align: center;
             font-family: $fontSecond;
             font-weight: 700;
-            padding: toRem(10);
+            // padding: toRem(10);
+            display: flex;
+            height: 100%;
         }
         p {
             font-size: toRem(16);
              text-align: center;
             font-weight: 300;
-            
+            line-height: 1.2;
+            display: flex;
+            height: 100%;
         }
     }
        .person-header {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        position: relative;
+        // display: flex;
+        // flex-direction: column;
+        // height: 100%;
+        display: grid;
+        grid-template-rows: toRem(55) auto;
+    justify-items: center;
+    height: 100%;
+        
         img {
                 
                 width: 100%;
@@ -182,7 +193,7 @@
                 text-align: center;
                 font-weight: 700;
                 font-family: $fontSecond;
-                padding: 5px 5px;
+                padding: 7px 2px;
             
                
                 font-family: $fontSecond;
@@ -190,6 +201,9 @@
       
                 // text-shadow: toRem(1) toRem(1) toRem(2) rgba(0, 0, 0, 0.5);
                 min-height: 50px;
+                display: flex;
+                    align-items: flex-end;
+                    justify-content: center;
                 
             }
        }     
