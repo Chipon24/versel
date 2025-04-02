@@ -1,4 +1,5 @@
 .menu {
+	
 	// .menu__icon
 	&__icon {
 	}
@@ -7,14 +8,17 @@
 		display: flex;
 		justify-content: flex-end;
 		@media (max-width: 500px) {
+			display: flex;
+        	justify-content: flex-start;
 			position: fixed;
-			width: 100%;
+			width: 80%;
 			height: 100%;
 			left: -100%;
 			top: 0;
 			overflow: auto;
-			padding: toRem(50) toRem(15) toRem(30) toRem(15);
+			padding: toRem(30) toRem(15) toRem(30) toRem(15);
 			transition: left 0.3s;
+			background-color: rgba(66, 129, 61, 0.87);
 			&::before {
 				content: "";
 				position: fixed;
@@ -36,10 +40,14 @@
 	// .menu__list
 	&__list {
 		display: flex;
-		justify-content: center;
+		justify-content: flex-end;
 
 		gap: 20px;
-		@media (max-width: $mobile) {
+		@media (max-width: 500px) {
+			display: flex;
+			flex-direction: column;
+		justify-content: flex-start;
+		gap: 5px;
 		}
 	}
 	// .menu__item
@@ -50,9 +58,9 @@
 	&__link {
 		font-size: 16px;
 		padding: toRem(20) 0;
-		color: #2443B8;
-		@media (max-width: $mobile) {
-			text-align: center;
+		color: #f5f6f8;
+		@media (max-width: 500px) {
+			padding: toRem(5) 0;
 		}
 	}
 }

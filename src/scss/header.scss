@@ -1,0 +1,23 @@
+.header {
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: rgba(66, 129, 61, 0.37);
+    @media (max-width: 500px) {
+        background-color: transparent;
+    }
+    &__container {
+
+    }
+
+    &__menu {
+        display: flex;
+        justify-content: flex-end;
+        @media (max-width: 500px) {
+            padding: toRem(15) 0;
+        }
+    }
+}

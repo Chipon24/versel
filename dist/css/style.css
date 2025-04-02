@@ -115,13 +115,13 @@ h6 {
 }
 .menu__list {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 20px
 }
 .menu__link {
   font-size: 16px;
   padding: 1.25rem 0;
-  color: #2443b8
+  color: #f5f6f8
 }
 .icon-menu {
   display: none
@@ -152,11 +152,33 @@ h6 {
   -o-object-fit: contain;
   object-fit: contain
 }
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: rgba(66,129,61,.37)
+}
+.header__menu {
+  display: flex;
+  justify-content: flex-end
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem 0;
+  width: 100%;
+  margin-top: 1.25rem;
+  background-color: rgba(66,129,61,.37)
+}
 .sanity__container {
   position: relative;
   overflow: hidden
 }
 .sanity__container .sanity-content {
+  padding-bottom: 1.25rem;
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(min(300px,100%),1fr));
   gap: .9375rem
@@ -304,14 +326,15 @@ h6 {
   min-height: 50px
 }
 .hero {
+  padding-top: 3.75rem;
   display: grid;
   grid-template-columns: 35% 1fr;
   gap: .9375rem;
-  padding-top: 1.25rem;
   padding-bottom: 1.875rem
 }
 .hero #hero {
-  display: flex
+  display: flex;
+  justify-content: center
 }
 .hero #hero .hero-content {
   display: flex;
@@ -1632,14 +1655,17 @@ button.swiper-pagination-bullet {
 }
 @media (max-width:500px) {
   .menu__body {
+    display: flex;
+    justify-content: flex-start;
     position: fixed;
-    width: 100%;
+    width: 80%;
     height: 100%;
     left: -100%;
     top: 0;
     overflow: auto;
-    padding: 3.125rem .9375rem 1.875rem .9375rem;
-    transition: left .3s
+    padding: 1.875rem .9375rem 1.875rem .9375rem;
+    transition: left .3s;
+    background-color: rgba(66,129,61,.87)
   }
   .menu__body::before {
     content: "";
@@ -1656,6 +1682,15 @@ button.swiper-pagination-bullet {
   }
   .menu-open .menu__body::before {
     left: 0
+  }
+  .menu__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px
+  }
+  .menu__link {
+    padding: .3125rem 0
   }
   .icon-menu {
     display: block;
@@ -1697,6 +1732,12 @@ button.swiper-pagination-bullet {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg)
   }
+  .header {
+    background-color: rgba(0,0,0,0)
+  }
+  .header__menu {
+    padding: .9375rem 0
+  }
 }
 @media (max-width:500px)and (any-hover:none) {
   .icon-menu {
@@ -1718,9 +1759,6 @@ button.swiper-pagination-bullet {
   }
 }
 @media (max-width:47.99875em) {
-  .menu__link {
-    text-align: center
-  }
   .hero {
     grid-template-columns: 1fr
   }

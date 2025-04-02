@@ -4,6 +4,7 @@
         position: relative;
         overflow: hidden;
         .sanity-content {
+            padding-bottom: toRem(20);
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
             // display: flex;
@@ -199,16 +200,18 @@
 }
 
 .hero {
+    padding-top: toRem(60);
     display: grid;
     grid-template-columns: 35% 1fr;
     gap: toRem(15);
-padding-top: toRem(20);
+
 padding-bottom: toRem(30);
 @media (max-width: $mobile) {
     grid-template-columns: 1fr;
 }
     #hero {
         display: flex;
+        justify-content: center;
     .hero-content {
         display: flex;
         flex-direction: column;
