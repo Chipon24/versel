@@ -5,14 +5,28 @@
     left: 0;
     width: 100%;
     z-index: 50;
-    background-color: rgba(66, 129, 61, 0.95);
+    // background-color: rgba(66, 129, 61, 0.95);
+    // background-color: rgb(14, 48, 85, 0.7);
     @media (max-width: 500px) {
         background-color: transparent;
     }
     &__container {
-
+        display: grid;
+            grid-template-columns: auto 1fr;
     }
-
+&__logo {
+    
+		display: flex;
+        justify-content: center;
+		align-items: center;
+		position: relative;
+		z-index: 120;
+		img {
+            @include adaptiveValue("width",100 ,60 );
+            @include adaptiveValue("height", 100,60 );
+		}
+		
+}
     &__menu {
         display: flex;
         justify-content: flex-end;

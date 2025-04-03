@@ -7,26 +7,57 @@
 		<div class="wrapper">
 			@@include('html/_header.htm',{})
 			<main class="page">
+				<section class="hero-section">
+					<div id="hero">	</div>
+				</section>
 				<div class="sanity__container">
-					<section class="hero">
+					<!-- <section class="hero">
 						<div id="hero">	</div>
 					<div id="heroMedia">	
 						<div class="heroMedia__slider swiper">
 							<div class="heroMedia__wrapper swiper-wrapper">
 								<div class="heroMedia__slide swiper-slide"></div>
 							</div>
-							<!-- <div class="swiper-pagination"></div>  -->
-							<!-- <div class="swiper-button-prev"></div>
-							<div class="swiper-button-next"></div> -->
+							<div class="swiper-pagination"></div> 
+							<div class="swiper-button-prev"></div>
+							<div class="swiper-button-next"></div> 
 						</div>
 					</div>
-					</section>
-					<h2 class="section-title">Наша <span>команда</span> </h2>
-					<div id="person">	</div>
-					<h2 class="section-title">Наші <span>новини</span> </h2>
-					<div id="posts" class="sanity-content">
+					</section> -->
+					
+					
 					</div>
 				</div>
+
+				<div class="page-gallery__gallery gallery">
+					<div data-gallery class="gallery__container">
+						<a href="@img/1.JPG" class="gallery__item-ibg">
+							<img src="@img/1.JPG" alt="Image">
+						</a>
+						<a href="@img/2.JPG" class="gallery__item-ibg">
+							<img src="@img/2.JPG" alt="Image">
+						</a>
+						<a href="@img/3.JPG" class="gallery__item-ibg">
+							<img src="@img/3.JPG" alt="Image">
+						</a>
+						<a href="@img/4.jpg" class="gallery__item-ibg">
+							<img src="@img/4.jpg" alt="Image">
+						</a>
+						
+					</div>
+				</div>
+				<section class="person-section">
+					<div class="person-section__container">
+						<h2 class="section-title">Наша <span>команда</span> </h2>
+						<div id="person">	</div>
+					</div>
+				</section>
+				<section class="posts-section">
+					<div class="posts-section__container">
+						<h2 class="section-title">Наші <span>новини</span> </h2>
+						<div id="posts" class="sanity-content">
+					</div>
+				</section>
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>
