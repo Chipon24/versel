@@ -395,6 +395,7 @@ padding-top: toRem(60);
 
 
 .gallery {
+    @include adaptiveValue("padding-top", 70, 40);
 	@include adaptiveValue("padding-bottom", 70, 40);
 	// background: url("@img/page-gallery/gallery-bg.jpg") bottom / cover no-repeat;
 	position: relative;
@@ -414,15 +415,53 @@ padding-top: toRem(60);
 		z-index: 2;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(toRem(280), 1fr));
-		gap: toRem(2);
+		gap: toRem(20);
 	}
+&__body {
+    position: relative;
+    // overflow-y: scroll;
+    // overflow-x: hidden;
+    // max-height: toRem(180);
+    max-width: 320px;
+}
+    &__items {
+        // display: grid;
+        // grid-template-columns: repeat(2, 1fr);
+       display: flex;
+       flex-wrap: nowrap;
+
+        gap: toRem(3);
+        
+    }
 	// .gallery__item-ibg
 	&__item-ibg {
-		aspect-ratio: 1 / 1;
+
+		position: relative;
+        display: flex;
+       flex: 1 0 150px;
+
 
         img {
-            width: 100px;
-            height: 100px;
+            
+            transform: scale(1);
+    will-change: transform;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
         }
 	}
+}
+
+.simplebar-track.simplebar-vertical {
+    top: 0;
+    
+    
+    background: rgba(241, 238, 238, 0.425);
+}
+.simplebar-track.simplebar-horizontal {
+    bottom: 0;
+    z-index: 300;
+    
+    
+    background: rgba(241, 238, 238, 0.425);
 }
