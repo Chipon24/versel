@@ -396,11 +396,6 @@ h6 {
   font-weight: 700;
   text-align: center
 }
-.sanity-content>button {
-  display: inline;
-  text-align: center;
-  justify-content: center
-}
 .hero__single {
   display: flex;
   justify-content: center;
@@ -520,6 +515,7 @@ h6 {
   gap: .1875rem
 }
 .gallery__item {
+  overflow: hidden;
   position: relative;
   display: flex;
   flex: 1 0 150px
@@ -529,7 +525,7 @@ h6 {
   transform: scale(1);
   will-change: transform;
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 150/150;
   -o-object-fit: cover;
   object-fit: cover
 }
