@@ -519,12 +519,12 @@ h6 {
   flex-wrap: nowrap;
   gap: .1875rem
 }
-.gallery__item-ibg {
+.gallery__item {
   position: relative;
   display: flex;
   flex: 1 0 150px
 }
-.gallery__item-ibg img {
+.gallery__item img {
   -webkit-transform: scale(1);
   transform: scale(1);
   will-change: transform;

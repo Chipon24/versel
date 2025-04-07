@@ -53,7 +53,7 @@ z-index: 100;
 
 .person-section {
     position: relative;
-    background: url(../img/bg.jpg) top / cover no-repeat;
+    background: url(../img/bg.png) top / cover no-repeat;
     padding: toRem(30) 0;
     &__container {
         #person {
@@ -434,7 +434,7 @@ padding-top: toRem(60);
         
     }
 	// .gallery__item-ibg
-	&__item-ibg {
+	&__item {
 
 		position: relative;
         display: flex;
