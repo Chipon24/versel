@@ -56,9 +56,9 @@ const config = {
 		host: 'local-ip', // localhost
 		//В режимі розробника папка 
 		// результатом (dist) буде створюватися на диску)
-		//devMiddleware: {
-		//	writeToDisk: true,
-		//},
+		devMiddleware: {
+			writeToDisk: true,
+		},
 		watchFiles: [
 			`${paths.src}/**/*.html`,
 			`${paths.src}/**/*.pug`,

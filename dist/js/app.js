@@ -1038,7 +1038,49 @@
     })();
     (() => {
         "use strict";
-        const modules_flsModules = {};
+        function isWebp() {
+            function testWebP(callback) {
+                let webP = new Image;
+                webP.onload = webP.onerror = function() {
+                    callback(webP.height == 2);
+                };
+                webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+            }
+            testWebP((function(support) {
+                let className = support === true ? "webp" : "no-webp";
+                document.documentElement.classList.add(className);
+            }));
+        }
+        let isMobile = {
+            Android: function() {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function() {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function() {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function() {
+                return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+            }
+        };
+        function addTouchClass() {
+            if (isMobile.any()) document.documentElement.classList.add("touch");
+        }
+        function addLoadedClass() {
+            if (!document.documentElement.classList.contains("loading")) window.addEventListener("load", (function() {
+                setTimeout((function() {
+                    document.documentElement.classList.add("loaded");
+                }), 0);
+            }));
+        }
         let bodyLockStatus = true;
         let bodyLockToggle = (delay = 500) => {
             if (document.documentElement.classList.contains("lock")) bodyUnlock(delay); else bodyLock(delay);
@@ -11360,31 +11402,13 @@ PERFORMANCE OF THIS SOFTWARE.
             return new LightGallery(el, options);
         }
         const lightgallery_es5 = lightGallery;
-        var lg_thumbnail_min = __webpack_require__(757);
+        __webpack_require__(757);
         __webpack_require__(227);
-        document.addEventListener("DOMContentLoaded", (() => {
-            const galleries = document.querySelectorAll("[data-gallery]");
-            if (galleries.length) {
-                let galleryItems = [];
-                galleries.forEach((gallery => {
-                    if (gallery.lgInstance) gallery.lgInstance.destroy(true);
-                    const instance = lightgallery_es5(gallery, {
-                        plugins: [ lg_thumbnail_min ],
-                        licenseKey: "7EC452A9-0CFD441C-BD984C7C-17C8456E",
-                        speed: 500,
-                        download: true
-                    });
-                    gallery.lgInstance = instance;
-                    galleryItems.push({
-                        gallery,
-                        galleryClass: instance
-                    });
-                }));
-                if (typeof modules_flsModules !== "undefined") modules_flsModules.gallery = galleryItems; else window.flsModules = {
-                    gallery: galleryItems
-                };
-            }
-        }));
+        lightgallery_es5(document.getElementById("aniimated-thumbnials"), {
+            thumbnail: true,
+            animateThumb: false,
+            showThumbByDefault: false
+        });
         document.addEventListener("DOMContentLoaded", (async () => {
             const postsContainer = document.getElementById("posts");
             if (!postsContainer) return;
@@ -11433,6 +11457,9 @@ PERFORMANCE OF THIS SOFTWARE.
             loadMoreButton.addEventListener("click", loadPosts);
         }));
         window["FLS"] = true;
+        isWebp();
+        addTouchClass();
+        addLoadedClass();
         menuInit();
     })();
 })();
