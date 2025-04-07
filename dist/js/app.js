@@ -11418,9 +11418,9 @@ PERFORMANCE OF THIS SOFTWARE.
                 galleryId: "nature",
                 plugins: [ lg_zoom_min, lg_thumbnail_min ],
                 mobileSettings: {
-                    controls: false,
-                    showCloseIcon: false,
-                    download: false,
+                    controls: true,
+                    showCloseIcon: true,
+                    download: true,
                     rotate: false
                 }
             });

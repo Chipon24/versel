@@ -149,9 +149,9 @@ document.addEventListener("DOMContentLoaded", function() {
       galleryId: 'nature',
       plugins: [lgZoom, lgThumbnail],
       mobileSettings: {
-        controls: false,
-        showCloseIcon: false,
-        download: false,
+        controls: true,
+        showCloseIcon: true,
+        download: true,
         rotate: false
       }
     });
