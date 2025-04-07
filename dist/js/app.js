@@ -11402,13 +11402,28 @@ PERFORMANCE OF THIS SOFTWARE.
             return new LightGallery(el, options);
         }
         const lightgallery_es5 = lightGallery;
-        __webpack_require__(757);
-        __webpack_require__(227);
-        lightgallery_es5(document.getElementById("aniimated-thumbnials"), {
-            thumbnail: true,
-            animateThumb: false,
-            showThumbByDefault: false
-        });
+        var lg_thumbnail_min = __webpack_require__(757);
+        var lg_zoom_min = __webpack_require__(227);
+        document.addEventListener("DOMContentLoaded", (function() {
+            const gallery = document.getElementById("animated-thumbnails-gallery");
+            const galleryItems = gallery.querySelectorAll(".gallery-item");
+            galleryItems.forEach((item => {
+                item.style.height = "180px";
+                item.style.marginBottom = "5px";
+            }));
+            lightgallery_es5(gallery, {
+                autoplayFirstVideo: false,
+                pager: false,
+                galleryId: "nature",
+                plugins: [ lg_zoom_min, lg_thumbnail_min ],
+                mobileSettings: {
+                    controls: false,
+                    showCloseIcon: false,
+                    download: false,
+                    rotate: false
+                }
+            });
+        }));
         document.addEventListener("DOMContentLoaded", (async () => {
             const postsContainer = document.getElementById("posts");
             if (!postsContainer) return;

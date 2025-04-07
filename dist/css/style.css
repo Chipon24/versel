@@ -485,22 +485,21 @@ h6 {
   object-fit: cover;
   margin: 0 auto
 }
-.gallery {
-  position: relative;
-  overflow: hidden
+#animated-thumbnails-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+  grid-gap: 5px
 }
-.gallery__item {
-  display: flex;
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 150px
-}
-.gallery__item img {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  will-change: transform;
+#animated-thumbnails-gallery .gallery-item {
   width: 100%;
-  aspect-ratio: 150/150;
+  height: 180px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 5px
+}
+#animated-thumbnails-gallery .gallery-item img {
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
   object-fit: cover
 }
@@ -3249,12 +3248,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .hero__single h2 {
     font-size: 1.875rem
   }
-  .gallery {
-    padding-top: 4.375rem
-  }
-  .gallery {
-    padding-bottom: 4.375rem
-  }
 }
 @media (max-width:500px) {
   .menu__body {
@@ -3384,12 +3377,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .hero__single h2 {
     font-size: 1.125rem
   }
-  .gallery {
-    padding-top: 2.5rem
-  }
-  .gallery {
-    padding-bottom: 2.5rem
-  }
 }
 @media (max-width:47.99875em) {
   .hero {
@@ -3444,11 +3431,5 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .hero__single h2 {
     font-size: clamp(1.125rem ,.975rem + .75vw ,1.875rem)
-  }
-  .gallery {
-    padding-top: clamp(2.5rem ,2.125rem + 1.875vw ,4.375rem)
-  }
-  .gallery {
-    padding-bottom: clamp(2.5rem ,2.125rem + 1.875vw ,4.375rem)
   }
 }

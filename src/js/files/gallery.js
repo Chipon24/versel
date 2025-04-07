@@ -132,11 +132,30 @@ import lgZoom from 'lightgallery/plugins/zoom/lg-zoom.min.js'
 // });
 
 
-lightGallery(document.getElementById('aniimated-thumbnials'), {
-	thumbnail:true,
-	  animateThumb: false,
-	  showThumbByDefault: false
-  }); 
+document.addEventListener("DOMContentLoaded", function() {
+    const gallery = document.getElementById("animated-thumbnails-gallery");
+    const galleryItems = gallery.querySelectorAll(".gallery-item");
+
+    // Можна додати додаткові стилі або налаштування для відображення
+    galleryItems.forEach(item => {
+      item.style.height = '180px'; // встановлення однакової висоти
+      item.style.marginBottom = '5px'; // відступи
+    });
+
+    // ініціалізація LightGallery після завантаження галереї
+    lightGallery(gallery, {
+      autoplayFirstVideo: false,
+      pager: false,
+      galleryId: 'nature',
+      plugins: [lgZoom, lgThumbnail],
+      mobileSettings: {
+        controls: false,
+        showCloseIcon: false,
+        download: false,
+        rotate: false
+      }
+    });
+  });
 
 
 
