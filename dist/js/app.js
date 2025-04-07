@@ -160,7 +160,7 @@
         },
         227: function(module) {
             /**
- * lightgallery | 2.8.3 | March 1st 2025
+ * lightgallery | 2.8.1 | November 13th 2024
  * http://www.lightgalleryjs.com/
  * Copyright (c) 2020 Sachin Neravath;
  * @license GPLv3
@@ -614,7 +614,7 @@
         },
         757: function(module) {
             /**
- * lightgallery | 2.8.3 | March 1st 2025
+ * lightgallery | 2.8.1 | November 13th 2024
  * http://www.lightgalleryjs.com/
  * Copyright (c) 2020 Sachin Neravath;
  * @license GPLv3
@@ -9667,7 +9667,7 @@
             }
         }), 0);
         /*!
- * lightgallery | 2.8.3 | March 1st 2025
+ * lightgallery | 2.8.1 | November 13th 2024
  * http://www.lightgalleryjs.com/
  * Copyright (c) 2020 Sachin Neravath;
  * @license GPLv3
@@ -10235,6 +10235,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     dynamicEl.alt = alt || title || "";
                     dynamicElements.push(dynamicEl);
                 }));
+                console.log(dynamicElements, "dynamicElements");
                 return dynamicElements;
             },
             isMobile: function() {

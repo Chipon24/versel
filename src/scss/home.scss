@@ -421,3 +421,8 @@ padding-top: toRem(60);
     
     background: rgba(241, 238, 238, 0.425);
 }
+
+.lg-close, .lg-download {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
