@@ -410,9 +410,9 @@ padding-top: toRem(60);
 		position: relative;
 		z-index: 2;
 		 display: grid;
-		// grid-template-columns: repeat(auto-fill, minmax(toRem(280), 1fr));
-         grid-template-columns: repeat(2, 1fr);
-		// gap: toRem(20);
+		grid-template-columns: repeat(auto-fill, minmax(toRem(280), 1fr));
+        //  grid-template-columns: repeat(2, 1fr);
+		gap: toRem(20);
         // overflow: hidden;
 	}
 &__body {
