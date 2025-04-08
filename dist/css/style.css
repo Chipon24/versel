@@ -3433,7 +3433,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     left: -100%;
     top: 0;
     overflow: auto;
-    padding: 1.875rem .9375rem 1.875rem .9375rem;
+    padding: 4.375rem .9375rem 1.875rem .9375rem;
     transition: left .3s;
     background-color: rgba(66,129,61,.87)
   }
