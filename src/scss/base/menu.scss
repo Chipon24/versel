@@ -43,6 +43,8 @@
 		justify-content: flex-end;
 
 		gap: 20px;
+		position: relative;
+		z-index: 700;
 		@media (max-width: 500px) {
 			display: flex;
 			flex-direction: column;
@@ -62,7 +64,7 @@
 		color: #ffffff;
 		text-transform: uppercase;
 		position: relative;
-		z-index: 101;
+		z-index: 701;
 		// text-shadow: toRem(2) toRem(2) toRem(6) rgba(0, 0, 0, 0.3);
 		@media (max-width: 500px) {
 			padding: toRem(5) 0;

@@ -111,7 +111,9 @@ h6 {
 .menu__list {
   display: flex;
   justify-content: flex-end;
-  gap: 20px
+  gap: 20px;
+  position: relative;
+  z-index: 700
 }
 .menu__link {
   font-size: 16px;
@@ -119,7 +121,7 @@ h6 {
   color: #fff;
   text-transform: uppercase;
   position: relative;
-  z-index: 101
+  z-index: 701
 }
 .icon-menu {
   display: none
@@ -187,7 +189,8 @@ h6 {
   align-items: center;
   height: 100vh;
   position: relative;
-  background: url(../img/mBg.webp) top/cover no-repeat
+  background: url(../img/mBg.webp) top/cover no-repeat;
+  z-index: 20
 }
 .hero-section::after {
   content: "";
@@ -227,7 +230,7 @@ h6 {
 }
 .person-section {
   position: relative;
-  background: url(../img/bg.webp) top/cover no-repeat;
+  background: url(../img/bg.webp) center/cover no-repeat;
   padding: 1.875rem 0
 }
 .person-section__container #person {
@@ -486,6 +489,7 @@ h6 {
   margin: 0 auto
 }
 #animated-thumbnails-gallery {
+  padding: 1.875rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
   grid-gap: 5px

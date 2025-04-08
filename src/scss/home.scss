@@ -7,7 +7,8 @@
     align-items: center;
     height: 100vh;
 position: relative;
-    background: url(../img/mBg.JPG) top / cover no-repeat;
+    background: url(../img/mBg.jpg) top / cover no-repeat;
+    z-index: 20;
     &::after {
         content: "";
         background: linear-gradient(45deg, rgba(29, 29, 29, 0.45) 0%, rgba(29, 29, 29, 0.22) 100%);
@@ -24,8 +25,8 @@ position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
-position: relative;
-z-index: 100;
+        position: relative;
+        z-index: 100;
         h1 {
             @include adaptiveValue("font-size", 84,28 );
             font-family: $fontSecond;
@@ -53,7 +54,7 @@ z-index: 100;
 
 .person-section {
     position: relative;
-    background: url(../img/bg.png) top / cover no-repeat;
+    background: url(../img/bg.jpg) center / cover no-repeat;
     padding: toRem(30) 0;
     &__container {
         #person {
@@ -390,9 +391,11 @@ padding-top: toRem(60);
 }
 
 #animated-thumbnails-gallery {
+    padding: toRem(30) 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Адаптивна сітка */
     grid-gap: 5px; /* Відстань між елементами */
+    
   }
   
   #animated-thumbnails-gallery .gallery-item {
