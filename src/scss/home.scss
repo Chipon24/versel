@@ -60,14 +60,14 @@
 
 .person-section {
     position: relative;
-    background: url(../img/bg.jpg) center / cover no-repeat;
+    // background: url(../img/bg.jpg) center / cover no-repeat;
     padding: toRem(30) 0;
     &__container {
         #person {
             display: grid;
             // grid-template-columns: repeat(4, 1fr);
             grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
-            gap: toRem(15);
+            gap: toRem(20);
             overflow: hidden;
           .person-content {
             display: flex;
@@ -318,7 +318,8 @@ padding-top: toRem(60);
 
 
 .news {
-    padding-top: toRem(90);
+    // padding-top: toRem(120);
+    @include adaptiveValue("padding-top",140 ,50);
     display: grid;
     grid-template-columns: 1fr 30%;
     gap: toRem(15);

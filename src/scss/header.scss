@@ -7,6 +7,7 @@
     z-index: 50;
     // background-color: rgba(66, 129, 61, 0.95);
     // background-color: rgb(14, 48, 85, 0.7);
+    // background: linear-gradient(45deg, rgba(29, 29, 29, 0.45) 0%, rgba(29, 29, 29, 0.22) 100%);
     @media (max-width: 500px) {
         background-color: transparent;
     }
@@ -33,5 +34,37 @@
         @media (max-width: 500px) {
             padding: toRem(15) 0;
         }
+    }
+}
+
+
+// ================ about about about ==========================
+
+.about {
+    padding: toRem(30);
+    &__container {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: toRem(40);
+        @media (max-width: $mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+    &__contact {
+        @include adaptiveValue("font-size", 20,14 );
+        line-height: 1.4;
+        font-weight: 300;
+        padding-right: toRem(40);
+        border-right: 2px solid rgb(180, 176, 176);
+        @media (max-width: $mobile) {
+            border-right: none;
+            border-bottom: 2px solid rgb(180, 176, 176);
+            padding-right: 0;
+        }
+    }
+    &__content {
+        @include adaptiveValue("font-size", 20,14 );
+        line-height: 1.4;
+        font-weight: 300;
     }
 }

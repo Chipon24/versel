@@ -118,7 +118,7 @@ h6 {
 .menu__link {
   font-size: 16px;
   padding: 2.8125rem 0;
-  color: #fff;
+  color: #fbfff8;
   text-transform: uppercase;
   position: relative;
   z-index: 701
@@ -173,6 +173,24 @@ h6 {
 .header__menu {
   display: flex;
   justify-content: flex-end
+}
+.about {
+  padding: 1.875rem
+}
+.about__container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2.5rem
+}
+.about__contact {
+  line-height: 1.4;
+  font-weight: 300;
+  padding-right: 2.5rem;
+  border-right: 2px solid #b4b0b0
+}
+.about__content {
+  line-height: 1.4;
+  font-weight: 300
 }
 .footer {
   display: flex;
@@ -230,13 +248,12 @@ h6 {
 }
 .person-section {
   position: relative;
-  background: url(../img/bg.webp) center/cover no-repeat;
   padding: 1.875rem 0
 }
 .person-section__container #person {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(min(250px,100%),1fr));
-  gap: .9375rem;
+  gap: 1.25rem;
   overflow: hidden
 }
 .person-section__container #person .person-content {
@@ -422,7 +439,6 @@ h6 {
   text-shadow: .0625rem .0625rem .125rem rgba(0,0,0,.5)
 }
 .news {
-  padding-top: 5.625rem;
   display: grid;
   grid-template-columns: 1fr 30%;
   gap: .9375rem
@@ -3398,6 +3414,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .header__logo img {
     height: 6.25rem
   }
+  .about__contact {
+    font-size: 1.25rem
+  }
+  .about__content {
+    font-size: 1.25rem
+  }
   .hero-section #hero .hero-content h1 {
     font-size: 5.25rem
   }
@@ -3421,6 +3443,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .hero__single h2 {
     font-size: 1.875rem
+  }
+  .news {
+    padding-top: 8.75rem
   }
 }
 @media (max-width:768px) {
@@ -3542,6 +3567,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .header__logo img {
     height: 2.5rem
   }
+  .about__contact {
+    font-size: .875rem
+  }
+  .about__content {
+    font-size: .875rem
+  }
   .hero-section #hero .hero-content h1 {
     font-size: 1.75rem
   }
@@ -3566,8 +3597,19 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .hero__single h2 {
     font-size: 1.125rem
   }
+  .news {
+    padding-top: 3.125rem
+  }
 }
 @media (max-width:47.99875em) {
+  .about__container {
+    grid-template-columns: 1fr
+  }
+  .about__contact {
+    border-right: none;
+    border-bottom: 2px solid #b4b0b0;
+    padding-right: 0
+  }
   .hero {
     grid-template-columns: 1fr
   }
@@ -3597,6 +3639,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .header__logo img {
     height: clamp(2.5rem ,1.75rem + 3.75vw ,6.25rem)
   }
+  .about__contact {
+    font-size: clamp(.875rem ,.8rem + .375vw ,1.25rem)
+  }
+  .about__content {
+    font-size: clamp(.875rem ,.8rem + .375vw ,1.25rem)
+  }
   .hero-section #hero .hero-content h1 {
     font-size: clamp(1.75rem ,1.05rem + 3.5vw ,5.25rem)
   }
@@ -3620,5 +3668,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .hero__single h2 {
     font-size: clamp(1.125rem ,.975rem + .75vw ,1.875rem)
+  }
+  .news {
+    padding-top: clamp(3.125rem ,2rem + 5.625vw ,8.75rem)
   }
 }
