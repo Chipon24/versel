@@ -22,8 +22,8 @@
 		position: relative;
 		z-index: 120;
 		img {
-            @include adaptiveValue("width",100 ,60 );
-            @include adaptiveValue("height", 100,60 );
+            @include adaptiveValue("width",100 ,40 );
+            @include adaptiveValue("height", 100,40 );
 		}
 		
 }

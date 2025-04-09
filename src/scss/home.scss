@@ -6,9 +6,15 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-position: relative;
+    position: relative;
     background: url(../img/mBg.jpg) top / cover no-repeat;
     z-index: 20;
+    @media (max-width: 768px) {
+        height: 50vh;
+    }
+    @media (max-width: 540px) {
+        height: 35vh;
+    }
     &::after {
         content: "";
         background: linear-gradient(45deg, rgba(29, 29, 29, 0.45) 0%, rgba(29, 29, 29, 0.22) 100%);
@@ -75,10 +81,13 @@ position: relative;
                 // flex-direction: column;
                 display: grid;
                 grid-template-rows: toRem(35) auto;
-            justify-items: center;
-            height: 100%;
-            gap: toRem(10);
-            padding-top: 5px;
+                justify-items: center;
+                height: 100%;
+                gap: toRem(10);
+                padding-top: 5px;
+                @media (max-width: 590px) {
+                    grid-template-rows: auto auto;
+                }
             
             h5 {
                 font-size: toRem(16);

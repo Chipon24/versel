@@ -3423,6 +3423,21 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: 1.875rem
   }
 }
+@media (max-width:768px) {
+  .hero-section {
+    height: 50vh
+  }
+}
+@media (max-width:590px) {
+  .person-section__container #person .person-content .person-details {
+    grid-template-rows: auto auto
+  }
+}
+@media (max-width:540px) {
+  .hero-section {
+    height: 35vh
+  }
+}
 @media (max-width:500px) {
   .menu__body {
     display: flex;
@@ -3522,10 +3537,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-right: .9375rem
   }
   .header__logo img {
-    width: 3.75rem
+    width: 2.5rem
   }
   .header__logo img {
-    height: 3.75rem
+    height: 2.5rem
   }
   .hero-section #hero .hero-content h1 {
     font-size: 1.75rem
@@ -3577,10 +3592,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-right: clamp(.9375rem ,-.75rem + 8.4375vw ,9.375rem)
   }
   .header__logo img {
-    width: clamp(3.75rem ,3.25rem + 2.5vw ,6.25rem)
+    width: clamp(2.5rem ,1.75rem + 3.75vw ,6.25rem)
   }
   .header__logo img {
-    height: clamp(3.75rem ,3.25rem + 2.5vw ,6.25rem)
+    height: clamp(2.5rem ,1.75rem + 3.75vw ,6.25rem)
   }
   .hero-section #hero .hero-content h1 {
     font-size: clamp(1.75rem ,1.05rem + 3.5vw ,5.25rem)
