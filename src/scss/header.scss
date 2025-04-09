@@ -41,13 +41,14 @@
 // ================ about about about ==========================
 
 .about {
-    padding: toRem(30);
+    padding: toRem(30) 0;
     &__container {
         display: grid;
         grid-template-columns: auto 1fr;
         gap: toRem(40);
         @media (max-width: $mobile) {
             grid-template-columns: 1fr;
+            gap: toRem(15);
         }
     }
     &__contact {
@@ -60,6 +61,7 @@
             border-right: none;
             border-bottom: 2px solid rgb(180, 176, 176);
             padding-right: 0;
+            padding-bottom: toRem(15);
         }
     }
     &__content {
@@ -68,3 +70,40 @@
         font-weight: 300;
     }
 }
+
+
+// =================== ГАЛЕРЕЇ =================
+
+.photo-gallery {
+    padding: toRem(30) 0;
+    .galleries-container {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: toRem(30);
+        @media (max-width: $mobile) {
+            grid-template-columns:  1fr;
+        }
+        .galleries {
+            display: flex;
+            flex-direction: column;
+            gap: toRem(10);
+    
+            &__block {
+                display: flex;
+                flex-wrap: wrap;
+                gap: toRem(3);
+                position: relative;
+                max-height: 180px;
+    
+                .animated-thumbnails-gallery {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: toRem(5);
+                }
+            }
+        }
+    }
+}
+
+// =================== ГАЛЕРЕЇ =================

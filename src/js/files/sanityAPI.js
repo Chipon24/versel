@@ -90,3 +90,15 @@ export async function getHeroSlider() {
 
   return await sanityClient.fetch(query);
 }
+
+export async function getGallery() {
+  const query = `*[_type == "galleries"]{
+    galleryTitle,
+    gallery[] {
+      alt,
+      "url": asset->url
+    }
+  }`;
+
+  return await sanityClient.fetch(query);
+}
