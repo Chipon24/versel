@@ -326,8 +326,8 @@ body {
 .person-section__container #person .person-content .person-details p {
   font-size: 1rem;
   text-align: center;
-  font-style: italic;
-  text-shadow: .25rem .25rem .625rem rgba(0,0,0,.9);
+  font-weight: 300;
+  text-shadow: .125rem .125rem .25rem rgba(0,0,0,.5);
   line-height: 1.2;
   display: flex;
   height: 100%
@@ -3488,6 +3488,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .person-section__container #person .person-content .person-header h4 {
     font-size: 1.25rem
   }
+  .posts-section {
+    padding-top: 2.5rem
+  }
+  .posts-section__container .sanity-content {
+    padding-top: 1.25rem
+  }
   .hero #hero .hero-content h1 {
     font-size: 4rem
   }
@@ -3555,6 +3561,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .person-section__container #person .person-content .person-header h4 {
     font-size: .75rem
+  }
+  .posts-section {
+    padding-top: .3125rem
+  }
+  .posts-section__container .sanity-content {
+    padding-top: .1875rem
   }
   .hero #hero .hero-content h1 {
     font-size: 1.75rem
@@ -3740,6 +3752,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .person-section__container #person .person-content .person-header h4 {
     font-size: clamp(.75rem ,.65rem + .5vw ,1.25rem)
+  }
+  .posts-section {
+    padding-top: clamp(.3125rem ,-.125rem + 2.1875vw ,2.5rem)
+  }
+  .posts-section__container .sanity-content {
+    padding-top: clamp(.1875rem ,-.025rem + 1.0625vw ,1.25rem)
   }
   .hero #hero .hero-content h1 {
     font-size: clamp(1.75rem ,1.3rem + 2.25vw ,4rem)

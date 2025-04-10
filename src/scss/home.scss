@@ -113,9 +113,9 @@
                 font-size: toRem(16);
                 @include adaptiveValue("font-size", 16,12 );
                     text-align: center;
-                // font-weight: 300;
-                font-style: italic;
-                text-shadow: toRem(4) toRem(4) toRem(10) rgba(0, 0, 0, 0.9);
+                font-weight: 300;
+                // font-style: italic;
+                text-shadow: toRem(2) toRem(2) toRem(4) rgba(0, 0, 0, 0.5);
                 line-height: 1.2;
                 display: flex;
                 height: 100%;
@@ -165,12 +165,13 @@
 
 
 .posts-section {
-    
+    @include adaptiveValue("padding-top",40 ,5 );
     &__container {
         position: relative;
         overflow: hidden;
         .sanity-content {
             padding-bottom: toRem(20);
+            @include adaptiveValue("padding-top", 20,3 );
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
             // display: flex;
