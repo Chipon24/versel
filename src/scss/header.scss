@@ -45,11 +45,14 @@
             padding: 5px 0;
         }
 		img {
-            width: toRem(90);
-            height: toRem(90);
+            @include adaptiveValue("width",90,40);
+            @include adaptiveValue("height", 90,40 );
+            // width: toRem(90);
+            // height: toRem(90);
             @media (max-width: $mobile) {
-                width: toRem(50);
-            height: toRem(50);
+            //     width: toRem(60);
+            // height: toRem(60);
+            display: none;
             }
             
 		}
@@ -69,7 +72,7 @@
 // ================ about about about ==========================
 
 .about {
-    padding: toRem(15) 0;
+    padding: toRem(35) 0;
     &__container {
         display: grid;
         grid-template-columns: auto 1fr;

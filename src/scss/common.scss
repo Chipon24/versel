@@ -1,1 +1,38 @@
 // Заголовки, загальні БЕМ блоки та інше...
+.hr-dot {
+    border: none;
+    text-align: center;
+    margin: 2rem auto;
+    position: relative;
+    width: 60%;
+  
+    &::before {
+      content: '•';
+      font-size: 2rem;
+      color: #888;
+      position: absolute;
+      left: 50%;
+      top: -0.75rem;
+      transform: translateX(-50%);
+      background: #fff;
+      padding: 0 0.5rem;
+    }
+  
+    &::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: #ddd;
+    }
+  }
+
+  .hr-gradient {
+    border: 0;
+    height: 3px;
+    background: linear-gradient(to right, rgb(14, 48, 85, 0.8), #41813d, #edecee);
+    border-radius: 2px;
+    // margin: 2rem 0;
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+  }

@@ -156,6 +156,40 @@ body {
   -o-object-fit: contain;
   object-fit: contain
 }
+.hr-dot {
+  border: none;
+  text-align: center;
+  margin: 2rem auto;
+  position: relative;
+  width: 60%
+}
+.hr-dot::before {
+  content: "•";
+  font-size: 2rem;
+  color: #888;
+  position: absolute;
+  left: 50%;
+  top: -.75rem;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 0 .5rem
+}
+.hr-dot::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: #ddd
+}
+.hr-gradient {
+  border: 0;
+  height: 3px;
+  background: linear-gradient(to right,rgba(14,48,85,.8),#41813d,#edecee);
+  border-radius: 2px;
+  margin: 0 auto;
+  width: 60%;
+  text-align: center
+}
 .header {
   position: fixed;
   top: 0;
@@ -180,17 +214,13 @@ body {
   position: relative;
   z-index: 120
 }
-.header__logo img {
-  width: 5.625rem;
-  height: 5.625rem
-}
 .header__menu {
   display: flex;
   justify-content: flex-end;
   align-items: center
 }
 .about {
-  padding: .9375rem 0
+  padding: 2.1875rem 0
 }
 .about__container {
   display: grid;
@@ -346,7 +376,7 @@ body {
   border-radius: .9375rem
 }
 .person-section__container #person .person-content .person-header h4 {
-  color: #41813d;
+  color: rgba(99,99,99,.863);
   text-transform: uppercase;
   font-size: 1.125rem;
   text-align: center;
@@ -3461,6 +3491,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   [class*=__container] {
     padding-right: 9.375rem
   }
+  .header__logo img {
+    width: 5.625rem
+  }
+  .header__logo img {
+    height: 5.625rem
+  }
   .about__contact {
     font-size: 1.25rem
   }
@@ -3478,6 +3514,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .hero-section #hero .hero-content h2 {
     font-size: 2.5rem
+  }
+  .person-section__container #person {
+    padding-top: 1.875rem
+  }
+  .person-section__container #person {
+    padding-bottom: 1.875rem
   }
   .person-section__container #person .person-content .person-details h5 {
     font-size: 1rem
@@ -3535,6 +3577,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   [class*=__container] {
     padding-right: .9375rem
   }
+  .header__logo img {
+    width: 2.5rem
+  }
+  .header__logo img {
+    height: 2.5rem
+  }
   .about__contact {
     font-size: .875rem
   }
@@ -3552,6 +3600,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .hero-section #hero .hero-content h2 {
     font-size: 1.125rem
+  }
+  .person-section__container #person {
+    padding-top: .3125rem
+  }
+  .person-section__container #person {
+    padding-bottom: .3125rem
   }
   .person-section__container #person .person-content .person-details h5 {
     font-size: .6875rem
@@ -3595,7 +3649,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     width: 100%;
     height: 100%;
     left: -100%;
-    top: 3.75rem;
     top: 0;
     overflow: auto;
     padding: 3.75rem .9375rem 1.875rem .9375rem;
@@ -3674,8 +3727,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding: 5px 0
   }
   .header__logo img {
-    width: 3.125rem;
-    height: 3.125rem
+    display: none
   }
   .header__menu {
     padding: .9375rem 0
@@ -3726,6 +3778,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   [class*=__container] {
     padding-right: clamp(.9375rem ,-.75rem + 8.4375vw ,9.375rem)
   }
+  .header__logo img {
+    width: clamp(2.5rem ,1.875rem + 3.125vw ,5.625rem)
+  }
+  .header__logo img {
+    height: clamp(2.5rem ,1.875rem + 3.125vw ,5.625rem)
+  }
   .about__contact {
     font-size: clamp(.875rem ,.8rem + .375vw ,1.25rem)
   }
@@ -3743,6 +3801,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .hero-section #hero .hero-content h2 {
     font-size: clamp(1.125rem ,.85rem + 1.375vw ,2.5rem)
+  }
+  .person-section__container #person {
+    padding-top: clamp(.3125rem ,.0000000625rem + 1.5625vw ,1.875rem)
+  }
+  .person-section__container #person {
+    padding-bottom: clamp(.3125rem ,.0000000625rem + 1.5625vw ,1.875rem)
   }
   .person-section__container #person .person-content .person-details h5 {
     font-size: clamp(.6875rem ,.625rem + .3125vw ,1rem)

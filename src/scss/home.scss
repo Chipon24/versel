@@ -71,6 +71,8 @@
             column-gap: toRem(20);
             row-gap: toRem(10);
             overflow: hidden;
+            @include adaptiveValue("padding-top",30 ,5 );
+            @include adaptiveValue("padding-bottom", 30,5 );
             @media (max-width: $mobile) {
                 grid-template-columns: repeat(auto-fill, minmax(min(140px, 100%), 1fr));
                 gap: toRem(10);
@@ -138,8 +140,8 @@
                     }
                     h4 {
                         // color: #41813d;
-                        color: #41813d;
-                        // color: rgba(99, 99, 99, 0.863);
+                        // color: #41813d;
+                        color: rgba(99, 99, 99, 0.863);
                         text-transform: uppercase;
                         font-size: toRem(18);
                         @include adaptiveValue("font-size",20 ,12 );
