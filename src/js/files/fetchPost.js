@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const li = document.createElement("li");
         li.classList.add(className);
         const date = new Date(post.publishDate).toLocaleDateString();
-        li.innerHTML = `<a href="post.html?slug=${post.slug}">${post.title}</a> <span class="post-date">(${date})</span>`;
+        li.innerHTML = `<a href="post.html?slug=${post.slug}">${post.title}</a> <span class="post-date">${date}</span>`;
         list.appendChild(li);
       });
     };

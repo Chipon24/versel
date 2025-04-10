@@ -534,19 +534,37 @@ body {
 .news .news-list ul {
   display: flex;
   flex-direction: column;
+  row-gap: .625rem;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   position: fixed;
   width: 22%;
-  top: 20%;
-  left: 70%;
-  padding: 10px;
-  border: 2px solid rgba(173,163,163,.856)
+  top: 30%;
+  left: 68%;
+  padding: 10px
 }
 .news .news-list ul li {
-  font-size: .875rem;
-  line-height: 1.3
+  font-size: .9375rem;
+  line-height: 1.3;
+  font-weight: 400;
+  padding: 5px;
+  border-radius: 8px;
+  transition: background-color .5s,-webkit-transform .5s;
+  transition: background-color .5s,transform .5s;
+  transition: background-color .5s,transform .5s,-webkit-transform .5s
+}
+.news .news-list ul li:hover {
+  -webkit-transform: translate(0,-.375rem);
+  transform: translate(0,-.375rem);
+  background: linear-gradient(135deg,rgba(0,0,0,.3) 0,rgba(0,0,0,.2) 50%,rgba(255,255,255,.05) 100%)
+}
+.news .news-list ul li span {
+  font-size: .75rem;
+  font-style: italic;
+  font-weight: 400;
+  color: #6d6d6d;
+  cursor: pointer
 }
 .single {
   display: flex;
