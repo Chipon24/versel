@@ -337,6 +337,7 @@ padding-top: toRem(60);
             flex-direction: column;
             height: fit-content;
             position: fixed;
+            width: 22%;
             top: 20%;
             left: 70%;
             padding: 10px;
@@ -345,6 +346,7 @@ padding-top: toRem(60);
                 position: relative;
                 top: 0;
                 left: 0;
+                width: 100%;
             }
             li {
               font-size: toRem(14);

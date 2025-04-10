@@ -8730,6 +8730,17 @@
             const query = `*[_type == "galleries"]{\n    galleryTitle,\n    gallery[] {\n      alt,\n      "url": asset->url\n    }\n  }`;
             return await sanityClient.fetch(query);
         }
+        async function getAllPosts() {
+            const query = `*[_type == "post"] | order(publishDate desc) {\n    title,\n    publishDate,\n    "slug": slug.current\n  }`;
+            try {
+                const posts = await sanityClient.fetch(query);
+                console.log("Отримані пости:", posts);
+                return posts;
+            } catch (error) {
+                console.error("Помилка отримання постів:", error);
+                return [];
+            }
+        }
         document.addEventListener("DOMContentLoaded", (async () => {
             const heroContainer = document.getElementById("hero");
             if (!heroContainer) {
@@ -8771,12 +8782,12 @@
             }
             try {
                 const single = await getSingle(slug);
-                console.log("Отримані дані:", single);
+                const allPosts = await getAllPosts();
                 if (!single || Object.keys(single).length === 0) {
                     document.body.innerHTML = "<h1>Пост не знайдено</h1>";
                     return;
                 }
-                document.getElementById("post-single").innerHTML = `\n        <h1>${single.title}</h1>\n        \n        <div>${new Date(single.publishDate).toLocaleDateString()}</div>\n        \n      `;
+                document.getElementById("post-single").innerHTML = `\n      <h1>${single.title}</h1>\n      <div>${new Date(single.publishDate).toLocaleDateString()}</div>\n    `;
                 const singleElement = document.createElement("article");
                 singleElement.classList.add("post-block");
                 const postContent = document.createElement("div");
@@ -8790,8 +8801,7 @@
                             element.textContent = text;
                             postContent.appendChild(element);
                         }
-                    }
-                    if (block._type === "blokPostImage" && block.imageUrl) {
+                    } else if (block._type === "blokPostImage" && block.imageUrl) {
                         const image = document.createElement("img");
                         image.src = block.imageUrl;
                         image.alt = block.alt || "Зображення";
@@ -8800,6 +8810,22 @@
                 }));
                 singleElement.append(postContent);
                 document.getElementById("post-single").append(singleElement);
+                const currentIndex = allPosts.findIndex((post => post.slug === slug));
+                const prevPosts = allPosts.slice(Math.max(0, currentIndex - 2), currentIndex);
+                const nextPosts = allPosts.slice(currentIndex + 1, currentIndex + 3);
+                const list = document.querySelector(".news-list ul");
+                list.innerHTML = "";
+                const renderPosts = (posts, className) => {
+                    posts.forEach((post => {
+                        const li = document.createElement("li");
+                        li.classList.add(className);
+                        const date = new Date(post.publishDate).toLocaleDateString();
+                        li.innerHTML = `<a href="post.html?slug=${post.slug}">${post.title}</a> <span class="post-date">(${date})</span>`;
+                        list.appendChild(li);
+                    }));
+                };
+                renderPosts(prevPosts, "prev-post");
+                renderPosts(nextPosts, "next-post");
             } catch (error) {
                 console.error("Помилка отримання поста:", error);
                 document.body.innerHTML = "<h1>Помилка завантаження поста</h1>";

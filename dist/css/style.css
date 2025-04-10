@@ -158,7 +158,8 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 50
+  z-index: 50;
+  background-color: rgba(14,48,85,.8)
 }
 .header__container {
   display: grid;
@@ -488,6 +489,7 @@ h6 {
   height: -moz-fit-content;
   height: fit-content;
   position: fixed;
+  width: 22%;
   top: 20%;
   left: 70%;
   padding: 10px;
@@ -3643,7 +3645,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .news .news-list ul {
     position: relative;
     top: 0;
-    left: 0
+    left: 0;
+    width: 100%
   }
   .single {
     border-right: none;

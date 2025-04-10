@@ -102,3 +102,20 @@ export async function getGallery() {
 
   return await sanityClient.fetch(query);
 }
+
+export async function getAllPosts() {
+  const query = `*[_type == "post"] | order(publishDate desc) {
+    title,
+    publishDate,
+    "slug": slug.current
+  }`;
+
+  try {
+    const posts = await sanityClient.fetch(query);
+    console.log("Отримані пости:", posts);
+    return posts;
+  } catch (error) {
+    console.error("Помилка отримання постів:", error);
+    return [];
+  }
+};
