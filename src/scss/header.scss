@@ -5,12 +5,30 @@
     left: 0;
     width: 100%;
     z-index: 50;
+    transition:
+		background-color 0.5s,
+		transform 0.5s;
+	@media (min-width: $pc) {
+		// padding-bottom: toRem(10);
+	}
+	@media (max-width: $pc) and (min-width: $mobile) {
+		// padding-bottom: toRem(5);
+	}
+	&._header-scroll {
+		background-color: rgb(14, 48, 85, 0.8);
+		// @media (min-width: $pc) {
+		// 	transform: translate(0px, toRem(-60));
+		// }
+		// @media (max-width: $pc) and (min-width: $mobile) {
+		// 	transform: translate(0px, toRem(-50));
+		// }
+	}
     // background-color: rgba(66, 129, 61, 0.95);
-    background-color: rgb(14, 48, 85, 0.8);
+    // background-color: rgb(14, 48, 85, 0.8);
     // background: linear-gradient(45deg, rgba(29, 29, 29, 0.45) 0%, rgba(29, 29, 29, 0.22) 100%);
-    @media (max-width: 500px) {
-        // background-color: transparent;
-    }
+    // @media (max-width: 500px) {
+    //     // background-color: transparent;
+    // }
     &__container {
         display: grid;
             grid-template-columns: auto 1fr;
@@ -85,7 +103,10 @@
 // =================== ГАЛЕРЕЇ =================
 
 .photo-gallery {
-    padding: toRem(30) 0;
+    // padding: toRem(30) 0;
+
+    @include adaptiveValue("padding-top",150 , 80);
+    @include adaptiveValue("padding-bottom",50 , 15);
     .galleries-container {
         position: relative;
         display: grid;

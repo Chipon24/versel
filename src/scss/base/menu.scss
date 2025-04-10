@@ -15,8 +15,9 @@
 			height: 100%;
 			left: -100%;
 			top: toRem(60);
+			top: 0;
 			overflow: auto;
-			padding: toRem(40) toRem(15) toRem(30) toRem(15);
+			padding: toRem(60) toRem(15) toRem(30) toRem(15);
 			transition: left 0.3s;
 			// background-color: rgba(66, 129, 61, 0.87);
 			background-color: rgb(14, 48, 85, 0.8);
@@ -62,14 +63,16 @@
 	&__link {
 		font-size: 16px;
 		padding: toRem(45) 0;
-		// color: #161616;
-		color: #fbfff8;
+		// color: #256600;
+		// color: #fbfff8;
+		color: #ffffff;
 		text-transform: uppercase;
 		position: relative;
 		z-index: 701;
-		text-shadow: toRem(2) toRem(2) toRem(6) rgba(0, 0, 0, 0.3);
+		text-shadow: toRem(4) toRem(4) toRem(10) rgba(0, 0, 0, 0.9);
 		@media (max-width: $mobile) {
 			padding: toRem(5) 0;
+			 color: #f1f1f1;
 		}
 	}
 }

@@ -320,7 +320,7 @@ padding-top: toRem(60);
 
 .news {
     // padding-top: toRem(120);
-    @include adaptiveValue("padding-top",140 ,50);
+    @include adaptiveValue("padding-top",140 ,60);
     display: grid;
     grid-template-columns: 1fr 30%;
     gap: toRem(15);

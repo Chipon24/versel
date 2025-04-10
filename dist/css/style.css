@@ -72,6 +72,9 @@ h6 {
   font-weight: inherit;
   font-size: inherit
 }
+body {
+  background-color: rgba(204,204,204,.842)
+}
 .lock body {
   overflow: hidden;
   touch-action: none;
@@ -118,11 +121,11 @@ h6 {
 .menu__link {
   font-size: 16px;
   padding: 2.8125rem 0;
-  color: #fbfff8;
+  color: #fff;
   text-transform: uppercase;
   position: relative;
   z-index: 701;
-  text-shadow: .125rem .125rem .375rem rgba(0,0,0,.3)
+  text-shadow: .25rem .25rem .625rem rgba(0,0,0,.9)
 }
 .icon-menu {
   display: none
@@ -159,6 +162,11 @@ h6 {
   left: 0;
   width: 100%;
   z-index: 50;
+  transition: background-color .5s,-webkit-transform .5s;
+  transition: background-color .5s,transform .5s;
+  transition: background-color .5s,transform .5s,-webkit-transform .5s
+}
+.header._header-scroll {
   background-color: rgba(14,48,85,.8)
 }
 .header__container {
@@ -199,9 +207,6 @@ h6 {
   line-height: 1.4;
   font-weight: 300
 }
-.photo-gallery {
-  padding: 1.875rem 0
-}
 .photo-gallery .galleries-container {
   position: relative;
   display: grid;
@@ -232,7 +237,7 @@ h6 {
   padding: 1.25rem 0;
   width: 100%;
   margin-top: 1.25rem;
-  background-color: rgba(66,129,61,.95)
+  background-color: rgba(14,48,85,.8)
 }
 .hero-section {
   display: flex;
@@ -3448,6 +3453,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .about__content {
     font-size: 1.25rem
   }
+  .photo-gallery {
+    padding-top: 9.375rem
+  }
+  .photo-gallery {
+    padding-bottom: 3.125rem
+  }
   .hero-section #hero .hero-content h1 {
     font-size: 5.25rem
   }
@@ -3504,6 +3515,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .about__content {
     font-size: .875rem
   }
+  .photo-gallery {
+    padding-top: 5rem
+  }
+  .photo-gallery {
+    padding-bottom: .9375rem
+  }
   .hero-section #hero .hero-content h1 {
     font-size: 1.75rem
   }
@@ -3529,7 +3546,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: 1.125rem
   }
   .news {
-    padding-top: 3.125rem
+    padding-top: 3.75rem
   }
 }
 @media (max-width:47.99875em) {
@@ -3541,8 +3558,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     height: 100%;
     left: -100%;
     top: 3.75rem;
+    top: 0;
     overflow: auto;
-    padding: 2.5rem .9375rem 1.875rem .9375rem;
+    padding: 3.75rem .9375rem 1.875rem .9375rem;
     transition: left .3s;
     background-color: rgba(14,48,85,.8);
     z-index: 49
@@ -3570,7 +3588,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     gap: 5px
   }
   .menu__link {
-    padding: .3125rem 0
+    padding: .3125rem 0;
+    color: #f1f1f1
   }
   .icon-menu {
     display: block;
@@ -3671,6 +3690,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .about__content {
     font-size: clamp(.875rem ,.8rem + .375vw ,1.25rem)
   }
+  .photo-gallery {
+    padding-top: clamp(5rem ,4.125rem + 4.375vw ,9.375rem)
+  }
+  .photo-gallery {
+    padding-bottom: clamp(.9375rem ,.5rem + 2.1875vw ,3.125rem)
+  }
   .hero-section #hero .hero-content h1 {
     font-size: clamp(1.75rem ,1.05rem + 3.5vw ,5.25rem)
   }
@@ -3696,6 +3721,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: clamp(1.125rem ,.975rem + .75vw ,1.875rem)
   }
   .news {
-    padding-top: clamp(3.125rem ,2rem + 5.625vw ,8.75rem)
+    padding-top: clamp(3.75rem ,2.75rem + 5vw ,8.75rem)
   }
 }
