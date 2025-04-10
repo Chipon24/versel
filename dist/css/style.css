@@ -73,7 +73,7 @@ h6 {
   font-size: inherit
 }
 body {
-  background-color: rgba(204,204,204,.842)
+  background-color: rgba(196,196,196,.377)
 }
 .lock body {
   overflow: hidden;
@@ -190,7 +190,7 @@ body {
   align-items: center
 }
 .about {
-  padding: 1.875rem 0
+  padding: .9375rem 0
 }
 .about__container {
   display: grid;
@@ -286,12 +286,15 @@ body {
 }
 .person-section {
   position: relative;
-  padding: 1.875rem 0
+  padding: .9375rem 0
 }
 .person-section__container #person {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(min(250px,100%),1fr));
-  gap: 1.25rem;
+  -webkit-column-gap: 1.25rem;
+  -moz-column-gap: 1.25rem;
+  column-gap: 1.25rem;
+  row-gap: .625rem;
   overflow: hidden
 }
 .person-section__container #person .person-content {
@@ -302,16 +305,20 @@ body {
 }
 .person-section__container #person .person-content .person-details {
   display: grid;
-  grid-template-rows: 2.1875rem auto;
+  grid-template-rows: 1.875rem auto;
   justify-items: center;
+  align-content: space-around;
   height: 100%;
-  gap: .625rem;
+  gap: .3125rem;
   padding-top: 5px
 }
 .person-section__container #person .person-content .person-details h5 {
   font-size: 1rem;
   text-align: center;
+  text-transform: uppercase;
   font-family: Arsenal,sans-serif;
+  color: rgba(99,99,99,.863);
+  text-shadow: .125rem .125rem .375rem rgba(0,0,0,.3);
   font-weight: 700;
   display: flex;
   height: 100%
@@ -319,7 +326,8 @@ body {
 .person-section__container #person .person-content .person-details p {
   font-size: 1rem;
   text-align: center;
-  font-weight: 300;
+  font-style: italic;
+  text-shadow: .25rem .25rem .625rem rgba(0,0,0,.9);
   line-height: 1.2;
   display: flex;
   height: 100%
@@ -344,9 +352,10 @@ body {
   text-align: center;
   font-weight: 700;
   font-family: Arsenal,sans-serif;
-  padding: 7px 2px;
+  padding: 0 2px 5px 2px;
   font-family: Arsenal,sans-serif;
   text-transform: uppercase;
+  text-shadow: .0625rem .0625rem .125rem rgba(0,0,0,.2);
   min-height: 50px;
   display: flex;
   align-items: flex-end;
@@ -450,9 +459,14 @@ body {
   overflow: hidden
 }
 .section-title {
-  padding: 1.5625rem 0;
+  padding: .625rem 0;
   font-weight: 700;
-  text-align: center
+  text-align: center;
+  color: rgba(14,48,85,.8);
+  text-shadow: .0625rem .0625rem .125rem rgba(0,0,0,.2)
+}
+.section-title span {
+  color: #41813d
 }
 .hero__single {
   display: flex;
@@ -3465,6 +3479,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .hero-section #hero .hero-content h2 {
     font-size: 2.5rem
   }
+  .person-section__container #person .person-content .person-details h5 {
+    font-size: 1rem
+  }
+  .person-section__container #person .person-content .person-details p {
+    font-size: 1rem
+  }
   .person-section__container #person .person-content .person-header h4 {
     font-size: 1.25rem
   }
@@ -3527,8 +3547,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .hero-section #hero .hero-content h2 {
     font-size: 1.125rem
   }
+  .person-section__container #person .person-content .person-details h5 {
+    font-size: .6875rem
+  }
+  .person-section__container #person .person-content .person-details p {
+    font-size: .75rem
+  }
   .person-section__container #person .person-content .person-header h4 {
-    font-size: 1rem
+    font-size: .75rem
   }
   .hero #hero .hero-content h1 {
     font-size: 1.75rem
@@ -3655,6 +3681,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .photo-gallery .galleries-container {
     grid-template-columns: 1fr
   }
+  .person-section__container #person {
+    grid-template-columns: repeat(auto-fill,minmax(min(140px,100%),1fr));
+    gap: .625rem
+  }
   .hero {
     grid-template-columns: 1fr
   }
@@ -3702,8 +3732,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .hero-section #hero .hero-content h2 {
     font-size: clamp(1.125rem ,.85rem + 1.375vw ,2.5rem)
   }
+  .person-section__container #person .person-content .person-details h5 {
+    font-size: clamp(.6875rem ,.625rem + .3125vw ,1rem)
+  }
+  .person-section__container #person .person-content .person-details p {
+    font-size: clamp(.75rem ,.7rem + .25vw ,1rem)
+  }
   .person-section__container #person .person-content .person-header h4 {
-    font-size: clamp(1rem ,.95rem + .25vw ,1.25rem)
+    font-size: clamp(.75rem ,.65rem + .5vw ,1.25rem)
   }
   .hero #hero .hero-content h1 {
     font-size: clamp(1.75rem ,1.3rem + 2.25vw ,4rem)
