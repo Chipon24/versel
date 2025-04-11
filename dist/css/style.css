@@ -270,15 +270,21 @@ body {
   background-color: rgba(14,48,85,.8)
 }
 .hero-section {
+  position: relative
+}
+.hero-section__container {
+  border-radius: .9375rem
+}
+.hero-section__body {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  width: 100%;
+  aspect-ratio: 16/9;
   position: relative;
   background: url(../img/mBg.webp) top/cover no-repeat;
   z-index: 20
 }
-.hero-section::after {
+.hero-section__body::after {
   content: "";
   background: linear-gradient(45deg,rgba(29,29,29,.45) 0,rgba(29,29,29,.22) 100%);
   position: absolute;
@@ -289,7 +295,8 @@ body {
 }
 .hero-section #hero {
   display: flex;
-  justify-content: center
+  justify-content: center;
+  align-items: center
 }
 .hero-section #hero .hero-content {
   display: flex;
@@ -452,41 +459,6 @@ body {
 }
 .posts-section__container .sanity-content .post .post-deskr {
   display: none
-}
-.hero {
-  padding-top: 3.75rem;
-  display: grid;
-  grid-template-columns: 35% 1fr;
-  gap: .9375rem
-}
-.hero #hero {
-  display: flex;
-  justify-content: center
-}
-.hero #hero .hero-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center
-}
-.hero #hero .hero-content h1 {
-  font-family: Arsenal,sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #2443b8;
-  text-align: center;
-  line-height: 1.1;
-  text-shadow: .0625rem .0625rem .125rem rgba(0,0,0,.5)
-}
-.hero #hero .hero-content h2 {
-  color: #41813d;
-  font-weight: 700;
-  line-height: 1.3;
-  text-align: center;
-  text-shadow: .0625rem .0625rem .125rem rgba(0,0,0,.5)
-}
-.hero #heroMedia {
-  display: flex;
-  overflow: hidden
 }
 .section-title {
   padding: .625rem 0;
@@ -3527,6 +3499,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .photo-gallery {
     padding-bottom: 3.125rem
   }
+  .hero-section {
+    padding-top: 6.875rem
+  }
   .hero-section #hero .hero-content h1 {
     font-size: 5.25rem
   }
@@ -3554,12 +3529,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .posts-section__container .sanity-content {
     padding-top: 1.25rem
   }
-  .hero #hero .hero-content h1 {
-    font-size: 4rem
-  }
-  .hero #hero .hero-content h2 {
-    font-size: 1.875rem
-  }
   .section-title {
     font-size: 2.75rem
   }
@@ -3585,19 +3554,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     gap: .625rem
   }
 }
-@media (max-width:768px) {
-  .hero-section {
-    height: 50vh
-  }
-}
 @media (max-width:590px) {
   .person-section__container #person .person-content .person-details {
     grid-template-rows: auto auto
-  }
-}
-@media (max-width:540px) {
-  .hero-section {
-    height: 35vh
   }
 }
 @media (max-width:20em) {
@@ -3625,11 +3584,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .photo-gallery {
     padding-bottom: .9375rem
   }
+  .hero-section {
+    padding-top: 3.75rem
+  }
   .hero-section #hero .hero-content h1 {
     font-size: 1.75rem
   }
   .hero-section #hero .hero-content h2 {
-    font-size: 1.125rem
+    font-size: .875rem
   }
   .person-section__container #person {
     padding-top: .3125rem
@@ -3651,12 +3613,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .posts-section__container .sanity-content {
     padding-top: .1875rem
-  }
-  .hero #hero .hero-content h1 {
-    font-size: 1.75rem
-  }
-  .hero #hero .hero-content h2 {
-    font-size: 1.125rem
   }
   .section-title {
     font-size: 1.75rem
@@ -3756,9 +3712,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .header__logo {
     padding: 5px 0
   }
-  .header__logo img {
-    display: none
-  }
   .header__menu {
     padding: .9375rem 0
   }
@@ -3778,9 +3731,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .person-section__container #person {
     grid-template-columns: repeat(auto-fill,minmax(min(140px,100%),1fr));
     gap: .625rem
-  }
-  .hero {
-    grid-template-columns: 1fr
   }
   .news {
     grid-template-columns: 1fr
@@ -3826,11 +3776,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .photo-gallery {
     padding-bottom: clamp(.9375rem ,.5rem + 2.1875vw ,3.125rem)
   }
+  .hero-section {
+    padding-top: clamp(3.75rem ,3.125rem + 3.125vw ,6.875rem)
+  }
   .hero-section #hero .hero-content h1 {
     font-size: clamp(1.75rem ,1.05rem + 3.5vw ,5.25rem)
   }
   .hero-section #hero .hero-content h2 {
-    font-size: clamp(1.125rem ,.85rem + 1.375vw ,2.5rem)
+    font-size: clamp(.875rem ,.55rem + 1.625vw ,2.5rem)
   }
   .person-section__container #person {
     padding-top: clamp(.3125rem ,.0000000625rem + 1.5625vw ,1.875rem)
@@ -3852,12 +3805,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .posts-section__container .sanity-content {
     padding-top: clamp(.1875rem ,-.025rem + 1.0625vw ,1.25rem)
-  }
-  .hero #hero .hero-content h1 {
-    font-size: clamp(1.75rem ,1.3rem + 2.25vw ,4rem)
-  }
-  .hero #hero .hero-content h2 {
-    font-size: clamp(1.125rem ,.975rem + .75vw ,1.875rem)
   }
   .section-title {
     font-size: clamp(1.75rem ,1.55rem + 1vw ,2.75rem)
