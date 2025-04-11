@@ -111,6 +111,7 @@
     @include adaptiveValue("padding-top",150 , 80);
     @include adaptiveValue("padding-bottom",50 , 15);
     .galleries-container {
+        padding-top: toRem(20);
         position: relative;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -124,16 +125,28 @@
             gap: toRem(10);
     
             &__block {
-                display: flex;
-                flex-wrap: wrap;
-                gap: toRem(3);
-                position: relative;
-                max-height: 180px;
+                // display: flex;
+                // flex-wrap: wrap;
+                
+                // gap: toRem(3);
+                // position: relative;
+                max-height: 200px;
+                
     
                 .animated-thumbnails-gallery {
-                    display: flex;
-                    flex-wrap: wrap;
+                    // display: flex;
+                    // flex-wrap: wrap;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
                     gap: toRem(5);
+                    
+
+                    img {
+                        width: 100%;
+                        aspect-ratio: 16 / 9;
+                        object-fit: cover;
+                        border-radius: toRem(5);
+                    }
                 }
             }
         }

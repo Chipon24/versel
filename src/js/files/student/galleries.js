@@ -55,16 +55,23 @@ document.addEventListener("DOMContentLoaded", async function () {
       galleryDiv.classList.add('animated-thumbnails-gallery');
 
       galleryData.gallery.forEach(image => {
+        // Генеруємо URL для прев’ю (наприклад, 400px по ширині)
+        const thumbUrl = `${image.url}?w=400&fit=max&auto=format`;
+      
+        // Повнорозмірне зображення (наприклад, 1600px)
+        const fullUrl = `${image.url}?w=1600&fit=max&auto=format`;
+      
         const link = document.createElement('a');
-        link.href = image.url;
+        link.href = fullUrl;
         link.classList.add('gallery-item');
-
+      
         const img = document.createElement('img');
-        img.src = image.url;
+        img.src = thumbUrl;
         img.alt = image.alt || 'Gallery Image';
-        img.style.height = '180px';
-        img.style.marginBottom = '5px';
-
+        //  img.style.height = '180px';
+        // img.style.objectFit = 'cover';
+        // img.style.marginBottom = '5px';
+      
         link.appendChild(img);
         galleryDiv.appendChild(link);
       });

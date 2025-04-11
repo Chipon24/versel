@@ -10647,14 +10647,14 @@ PERFORMANCE OF THIS SOFTWARE.
                     galleryDiv.id = `animated-thumbnails-gallery-${index}`;
                     galleryDiv.classList.add("animated-thumbnails-gallery");
                     galleryData.gallery.forEach((image => {
+                        const thumbUrl = `${image.url}?w=400&fit=max&auto=format`;
+                        const fullUrl = `${image.url}?w=1600&fit=max&auto=format`;
                         const link = document.createElement("a");
-                        link.href = image.url;
+                        link.href = fullUrl;
                         link.classList.add("gallery-item");
                         const img = document.createElement("img");
-                        img.src = image.url;
+                        img.src = thumbUrl;
                         img.alt = image.alt || "Gallery Image";
-                        img.style.height = "180px";
-                        img.style.marginBottom = "5px";
                         link.appendChild(img);
                         galleryDiv.appendChild(link);
                     }));

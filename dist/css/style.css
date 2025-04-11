@@ -238,6 +238,7 @@ body {
   font-weight: 300
 }
 .photo-gallery .galleries-container {
+  padding-top: 1.25rem;
   position: relative;
   display: grid;
   grid-template-columns: repeat(2,1fr);
@@ -249,16 +250,19 @@ body {
   gap: .625rem
 }
 .photo-gallery .galleries-container .galleries__block {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .1875rem;
-  position: relative;
-  max-height: 180px
+  max-height: 200px
 }
 .photo-gallery .galleries-container .galleries__block .animated-thumbnails-gallery {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(min(220px,100%),1fr));
   gap: .3125rem
+}
+.photo-gallery .galleries-container .galleries__block .animated-thumbnails-gallery img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: .3125rem
 }
 .footer {
   display: flex;
@@ -598,17 +602,25 @@ body {
 }
 .simplebar-track.simplebar-vertical {
   top: 0;
-  background: rgba(207,13,13,.425)
+  z-index: 300;
+  background: rgba(158,158,158,.3)
+}
+.simplebar-track.simplebar-vertical .simplebar-scrollbar {
+  position: absolute;
+  top: .625rem;
+  left: 0;
+  right: 0;
+  min-height: 10px;
+  background-color: rgba(14,48,85,.8);
+  border-radius: 20px
+}
+.simplebar-track.simplebar-vertical .simplebar-scrollbar::before {
+  background-color: rgba(23,139,8,.8)
 }
 .simplebar-track.simplebar-horizontal {
   bottom: 0;
   z-index: 300;
   background: rgba(241,238,238,.425)
-}
-.lg-close,
-.lg-download {
-  visibility: visible!important;
-  opacity: 1!important
 }
 @font-face {
   font-family: swiper-icons;

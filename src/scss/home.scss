@@ -497,9 +497,22 @@ padding-top: toRem(60);
 
 .simplebar-track.simplebar-vertical {
     top: 0;
+    z-index: 300;
     
-    
-    background: rgba(207, 13, 13, 0.425);
+    background: rgba(158, 158, 158, 0.3);
+    .simplebar-scrollbar {
+        position: absolute;
+        top: toRem(10);
+        left: 0;
+        right: 0;
+        min-height: 10px;
+        background-color: rgb(14, 48, 85, 0.8);
+        border-radius: 20px;
+
+    }
+    .simplebar-scrollbar::before {
+        background-color: rgba(23, 139, 8, 0.8);
+    }
 }
 .simplebar-track.simplebar-horizontal {
     bottom: 0;
@@ -509,7 +522,3 @@ padding-top: toRem(60);
     background: rgba(241, 238, 238, 0.425);
 }
 
-.lg-close, .lg-download {
-    visibility: visible !important;
-    opacity: 1 !important;
-}
