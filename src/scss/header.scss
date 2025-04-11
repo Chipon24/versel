@@ -94,11 +94,34 @@
             padding-right: 0;
             padding-bottom: toRem(15);
         }
+
+        
     }
     &__content {
         @include adaptiveValue("font-size", 20,14 );
         line-height: 1.4;
         font-weight: 300;
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+        row-gap: toRem(5);
+        &__title {
+            @include adaptiveValue("font-size", 30,20 );
+            font-weight: 500
+        }
+        &__phone {
+            display: flex;
+            flex-direction: column;
+        }
+        &__social {
+            
+            a {
+                display: flex;
+                gap: toRem(7);
+            }
+        }
     }
 }
 

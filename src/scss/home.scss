@@ -429,26 +429,6 @@ padding-top: toRem(60);
     
 }
 
-#animated-thumbnails-gallery {
-    padding: toRem(30) 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Адаптивна сітка */
-    grid-gap: 5px; /* Відстань між елементами */
-    
-  }
-  
-  #animated-thumbnails-gallery .gallery-item {
-    width: 100%; /* Повна ширина для кожного елемента */
-    height: 180px; /* Стандартна висота для кожного зображення */
-    object-fit: cover; /* Збереження пропорцій при обрізанні зображення */
-    border-radius: 5px; /* За бажанням можна додати заокруглені кути */
-  }
-  
-  #animated-thumbnails-gallery .gallery-item img {
-    width: 100%; /* Зображення займає всю ширину контейнера */
-    height: 100%; /* Висота зображення буде рівною висоті контейнера */
-    object-fit: cover; /* Обрізаємо зображення, якщо воно перевищує розміри контейнера */
-  }
 
 .simplebar-track.simplebar-vertical {
     top: 0;
