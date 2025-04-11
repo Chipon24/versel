@@ -3528,7 +3528,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: 1.875rem
   }
   .hero-section {
-    padding-top: 7.5rem
+    padding-top: 6.875rem
   }
   .hero-section #hero .hero-content h1 {
     font-size: 5.25rem
@@ -3578,8 +3578,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 }
 @media (max-width:862px) {
   .person-section__container #person {
-    grid-template-columns: repeat(auto-fill,minmax(min(190px,100%),1fr));
-    gap: .625rem
+    grid-template-columns: repeat(auto-fill,minmax(min(190px,100%),1fr))
   }
 }
 @media (max-width:590px) {
@@ -3763,8 +3762,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     grid-template-columns: 1fr
   }
   .person-section__container #person {
-    grid-template-columns: repeat(auto-fill,minmax(min(140px,100%),1fr));
-    gap: .625rem
+    grid-template-columns: repeat(auto-fill,minmax(min(140px,100%),1fr))
   }
   .news {
     grid-template-columns: 1fr
@@ -3817,7 +3815,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: clamp(1.125rem ,.975rem + .75vw ,1.875rem)
   }
   .hero-section {
-    padding-top: clamp(3.75rem ,3rem + 3.75vw ,7.5rem)
+    padding-top: clamp(3.75rem ,3.125rem + 3.125vw ,6.875rem)
   }
   .hero-section #hero .hero-content h1 {
     font-size: clamp(1.75rem ,1.05rem + 3.5vw ,5.25rem)

@@ -16,19 +16,9 @@
 	}
 	&._header-scroll {
 		background-color: rgb(14, 48, 85, 0.8);
-		// @media (min-width: $pc) {
-		// 	transform: translate(0px, toRem(-60));
-		// }
-		// @media (max-width: $pc) and (min-width: $mobile) {
-		// 	transform: translate(0px, toRem(-50));
-		// }
+		
 	}
-    // background-color: rgba(66, 129, 61, 0.95);
-    // background-color: rgb(14, 48, 85, 0.8);
-    // background: linear-gradient(45deg, rgba(29, 29, 29, 0.45) 0%, rgba(29, 29, 29, 0.22) 100%);
-    // @media (max-width: 500px) {
-    //     // background-color: transparent;
-    // }
+  
     &__container {
         display: grid;
             grid-template-columns: auto 1fr;
@@ -47,13 +37,6 @@
 		img {
             @include adaptiveValue("width",70,40);
             @include adaptiveValue("height", 70,40 );
-            // width: toRem(90);
-            // height: toRem(90);
-            @media (max-width: $mobile) {
-            //     width: toRem(60);
-            // height: toRem(60);
-            // display: none;
-            }
             
 		}
 		
@@ -159,22 +142,12 @@
             }
     
             &__block {
-                // display: flex;
-                // flex-wrap: wrap;
-                
-                // gap: toRem(3);
-                // position: relative;
                 max-height: 200px;
-                
-    
                 .animated-thumbnails-gallery {
-                    // display: flex;
-                    // flex-wrap: wrap;
                     display: grid;
                     grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
                     gap: toRem(5);
                     
-
                     img {
                         width: 100%;
                         aspect-ratio: 16 / 9;

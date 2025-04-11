@@ -3,36 +3,21 @@
     
     position: relative;
     
-    @include adaptiveValue("padding-top",120 ,60 );
+    @include adaptiveValue("padding-top",110 ,60 );
 
     &__container {
         border-radius: toRem(15);
     }
-    &__body {
-// padding-top: toRem(150);
-    // padding-bottom: toRem(30);
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // width: 100%;
-    // height: 100vh;
-    
+    &__body {  
     display: flex;
     justify-content: center;
     width: 100%;
-  aspect-ratio: 16 / 9;
-  position: relative; 
+    aspect-ratio: 16 / 9;
+    position: relative; 
     background: url(../img/mBg.jpg) top / cover no-repeat;
     z-index: 20;
     
-    // @media (max-width: 768px) {
-    //     height: 50vh;
-        
-    // }
-    // @media (max-width: 540px) {
-    //     height: 35vh;
-    // }
-    &::after {
+      &::after {
         content: "";
         background: linear-gradient(45deg, rgba(29, 29, 29, 0.45) 0%, rgba(29, 29, 29, 0.22) 100%);
         position: absolute;
@@ -81,12 +66,10 @@
 
 .person-section {
     position: relative;
-    // background: url(../img/bg.jpg) center / cover no-repeat;
     padding: toRem(15) 0;
     &__container {
         #person {
             display: grid;
-            // grid-template-columns: repeat(4, 1fr);
             grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
             column-gap: toRem(20);
             row-gap: toRem(10);
@@ -99,22 +82,19 @@
             }
             @media (max-width: 862px) {
                 grid-template-columns: repeat(auto-fill, minmax(min(190px, 100%), 1fr));
-                gap: toRem(10);
+
             }
             @media (max-width: $mobile) {
                 grid-template-columns: repeat(auto-fill, minmax(min(140px, 100%), 1fr));
-                gap: toRem(10);
+
             }
           .person-content {
             display: flex;
             flex-direction: column;
             min-width: 0;
             word-wrap: break-word;
-            // background-color: #fff;
             
             .person-details {
-                // display: flex;
-                // flex-direction: column;
                 display: grid;
                 grid-template-rows: toRem(30) auto;
                 justify-items: center;
@@ -135,16 +115,14 @@
                 color: rgba(99, 99, 99, 0.863);
                 text-shadow: toRem(2) toRem(2) toRem(6) rgba(0, 0, 0, 0.3);
                 font-weight: 700;
-                // padding: toRem(10);
                 display: flex;
                 height: 100%;
             }
             p {
                 font-size: toRem(16);
                 @include adaptiveValue("font-size", 16,12 );
-                    text-align: center;
+                text-align: center;
                 font-weight: 300;
-                // font-style: italic;
                 text-shadow: toRem(2) toRem(2) toRem(4) rgba(0, 0, 0, 0.5);
                 line-height: 1.2;
                 display: flex;
@@ -162,13 +140,10 @@
                 width: 100%;
                 aspect-ratio: 200 / 260;
                 object-fit: cover;
-                // border-radius: 20px 20px 0 0 / 25px 25px 0 0;
                 border-radius: toRem(15);
                         
                     }
                     h4 {
-                        // color: #41813d;
-                        // color: #41813d;
                         color: rgba(99, 99, 99, 0.863);
                         text-transform: uppercase;
                         font-size: toRem(18);
@@ -182,8 +157,8 @@
                         text-shadow: toRem(1) toRem(1) toRem(2) rgba(0, 0, 0, 0.2);
                         min-height: 50px;
                         display: flex;
-                            align-items: flex-end;
-                            justify-content: center;
+                        align-items: flex-end;
+                        justify-content: center;
                         
                     }
                }     
@@ -204,8 +179,6 @@
             @include adaptiveValue("padding-top", 20,3 );
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-            // display: flex;
-            // flex-wrap: wrap;
             gap: toRem(15);
             
            .post {
@@ -433,11 +406,9 @@ padding-top: toRem(60);
 .simplebar-track.simplebar-vertical {
     top: 0;
     z-index: 300;
-    
     background: rgba(158, 158, 158, 0.3);
     .simplebar-scrollbar {
         position: absolute;
-        // top: toRem(10);
         left: 0;
         right: 0;
         min-height: 10px;
@@ -452,8 +423,6 @@ padding-top: toRem(60);
 .simplebar-track.simplebar-horizontal {
     bottom: 0;
     z-index: 300;
-    
-    
     background: rgba(241, 238, 238, 0.425);
 }
 
