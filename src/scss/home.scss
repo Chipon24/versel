@@ -3,7 +3,7 @@
     
     position: relative;
     
-    @include adaptiveValue("padding-top",110 ,60 );
+    @include adaptiveValue("padding-top",120 ,60 );
 
     &__container {
         border-radius: toRem(15);
@@ -87,7 +87,7 @@
         #person {
             display: grid;
             // grid-template-columns: repeat(4, 1fr);
-            grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
             column-gap: toRem(20);
             row-gap: toRem(10);
             overflow: hidden;
@@ -275,52 +275,7 @@
 }
 
 
-// .hero {
-//     padding-top: toRem(60);
-//     display: grid;
-//     grid-template-columns: 35% 1fr;
-//     gap: toRem(15);
 
-
-// @media (max-width: $mobile) {
-//     grid-template-columns: 1fr;
-// }
-//     #hero {
-//         display: flex;
-//         justify-content: center;
-//     .hero-content {
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-
-//         h1 {
-//             @include adaptiveValue("font-size", 64,28 );
-//             font-family: $fontSecond;
-//             text-transform: uppercase;
-//             font-weight: 700;
-//             color: #2443B8;
-//             text-align: center;
-//             line-height: 1.1;
-//             text-shadow: toRem(1) toRem(1) toRem(2) rgba(0, 0, 0, 0.5);
-//         }
-//         h2 {
-//             color: #41813d;
-//             font-weight: 700;
-//             line-height: 1.3;
-//             text-align: center;
-//             @include adaptiveValue("font-size", 30,18 );
-//             text-shadow: toRem(1) toRem(1) toRem(2) rgba(0, 0, 0, 0.5);
-//         }
-
-//     }
-// }
-// #heroMedia {
-//     display: flex;
-//     overflow: hidden;
-// }
-
-
-// }
 
 .section-title {
     padding: toRem(10) 0;
@@ -502,7 +457,7 @@ padding-top: toRem(60);
     background: rgba(158, 158, 158, 0.3);
     .simplebar-scrollbar {
         position: absolute;
-        top: toRem(10);
+        // top: toRem(10);
         left: 0;
         right: 0;
         min-height: 10px;

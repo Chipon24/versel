@@ -45,8 +45,8 @@
             padding: 5px 0;
         }
 		img {
-            @include adaptiveValue("width",90,40);
-            @include adaptiveValue("height", 90,40 );
+            @include adaptiveValue("width",70,40);
+            @include adaptiveValue("height", 70,40 );
             // width: toRem(90);
             // height: toRem(90);
             @media (max-width: $mobile) {
@@ -107,11 +107,12 @@
 
 .photo-gallery {
     // padding: toRem(30) 0;
+    padding-top: 10px;
 
     @include adaptiveValue("padding-top",150 , 80);
     @include adaptiveValue("padding-bottom",50 , 15);
     .galleries-container {
-        padding-top: toRem(20);
+        padding-top: toRem(40);
         position: relative;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -123,6 +124,16 @@
             display: flex;
             flex-direction: column;
             gap: toRem(10);
+            &__title {
+                font-size: toRem(30);
+                @include adaptiveValue("font-size",30 ,18 );
+        font-weight: 600;
+        color: rgba(99, 99, 99, 0.863);
+        text-transform: uppercase;
+        text-shadow: toRem(1) toRem(1) toRem(2) rgba(0, 0, 0, 0.2);
+        text-align: center;
+        padding-bottom: toRem(10);
+            }
     
             &__block {
                 // display: flex;

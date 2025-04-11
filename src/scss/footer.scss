@@ -3,11 +3,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: toRem(20) 0;
+    padding: toRem(5) 0;
     width: 100%;
     margin-top: toRem(20);
 
     // background-color: rgba(66, 129, 61, 0.95);
     background-color: rgb(14, 48, 85, 0.8);
+    font-size: toRem(14);
+    text-align: center;
 }
 //====================================================================================================
